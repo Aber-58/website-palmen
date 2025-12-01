@@ -1,0 +1,559 @@
+---
+import { Image } from "astro:assets";
+import breakImage from "../assets/meer-sonnenuntergang.jpg";
+---
+
+<section id="ablauf-kosten" class="py-24 bg-white relative overflow-hidden">
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-primary font-serif italic text-lg mb-2 block"
+                >Informationen</span
+            >
+            <h2 class="font-serif text-4xl md:text-5xl text-text mb-6">
+                Ablauf & Kosten
+            </h2>
+            <p class="text-lg text-text/90 max-w-2xl mx-auto">
+                Hier finden Sie alle wichtigen Informationen zum Ablauf einer
+                Therapie und den verschiedenen Abrechnungsmöglichkeiten.
+            </p>
+        </div>
+
+        <!-- Ablauf Timeline -->
+        <div class="mb-24">
+            <h3 class="font-serif text-3xl text-text mb-12 text-center">
+                Der Weg zur Therapie
+            </h3>
+
+            <div class="relative">
+                <!-- Vertical Line (Desktop) -->
+                <div
+                    class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-secondary/30 -translate-x-1/2"
+                >
+                </div>
+
+                <!-- Step 1 -->
+                <div
+                    class="relative flex flex-col md:flex-row items-center md:justify-between mb-12 md:mb-24 group"
+                    data-aos="fade-up"
+                >
+                    <div
+                        class="md:w-5/12 text-center md:text-right order-2 md:order-1"
+                    >
+                        <h4 class="font-serif text-2xl text-text mb-3">
+                            1. Kontaktaufnahme
+                        </h4>
+                        <p class="text-text/90 leading-relaxed">
+                            Melden Sie sich telefonisch oder per E-Mail. Ich
+                            rufe Sie zeitnah zurück, um ein erstes kurzes
+                            Gespräch zu führen und einen Termin für ein
+                            Erstgespräch zu vereinbaren.
+                        </p>
+                    </div>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 w-10 h-10 bg-white border-2 border-primary rounded-full flex items-center justify-center text-primary font-serif font-bold z-10 order-1 md:order-2 mb-6 md:mb-0 shadow-sm group-hover:scale-110 transition-transform"
+                    >
+                        1
+                    </div>
+                    <div class="md:w-5/12 order-3 md:order-3"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div
+                    class="relative flex flex-col md:flex-row items-center md:justify-between mb-12 md:mb-24 group"
+                    data-aos="fade-up"
+                >
+                    <div class="md:w-5/12 order-3 md:order-1"></div>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 w-10 h-10 bg-white border-2 border-primary rounded-full flex items-center justify-center text-primary font-serif font-bold z-10 order-1 md:order-2 mb-6 md:mb-0 shadow-sm group-hover:scale-110 transition-transform"
+                    >
+                        2
+                    </div>
+                    <div
+                        class="md:w-5/12 text-center md:text-left order-2 md:order-3"
+                    >
+                        <h4 class="font-serif text-2xl text-text mb-3">
+                            2. Probatorik
+                        </h4>
+                        <p class="text-text/90 leading-relaxed">
+                            In 4-5 "Schnupperstunden" lernen wir uns kennen. Wir
+                            klären Ihr Anliegen, stellen eine Diagnose und
+                            prüfen, ob die "Chemie" stimmt – die wichtigste
+                            Basis für eine erfolgreiche Therapie.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div
+                    class="relative flex flex-col md:flex-row items-center md:justify-between group"
+                    data-aos="fade-up"
+                >
+                    <div
+                        class="md:w-5/12 text-center md:text-right order-2 md:order-1"
+                    >
+                        <h4 class="font-serif text-2xl text-text mb-3">
+                            3. Therapiebeginn
+                        </h4>
+                        <p class="text-text/90 leading-relaxed">
+                            Wir entscheiden gemeinsam über das weitere Vorgehen,
+                            stellen ggf. Anträge bei der Kasse und legen
+                            Frequenz und Dauer der Sitzungen fest (meist 50 Min.
+                            wöchentlich).
+                        </p>
+                    </div>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif font-bold z-10 order-1 md:order-2 mb-6 md:mb-0 shadow-lg group-hover:scale-110 transition-transform"
+                    >
+                        3
+                    </div>
+                    <div class="md:w-5/12 order-3 md:order-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visual Break -->
+        <div
+            class="relative h-96 rounded-[3rem] overflow-hidden mb-24 group"
+            data-aos="fade-up"
+        >
+            <Image
+                src={breakImage}
+                alt="Meer Sonnenuntergang"
+                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div
+                class="absolute inset-0 flex items-center justify-center p-8 text-center"
+            >
+                <p
+                    class="font-serif text-3xl md:text-4xl text-white italic drop-shadow-lg max-w-3xl leading-relaxed"
+                >
+                    "Es sind die kleinen Schritte, die uns ans Ziel bringen."
+                </p>
+            </div>
+        </div>
+
+        <!-- Kosten -->
+        <div id="kosten" class="scroll-mt-32">
+            <h2
+                class="font-serif text-4xl md:text-5xl text-text mb-12 text-center"
+            >
+                Kosten & Abrechnung
+            </h2>
+
+            <div
+                class="bg-secondary/10 p-6 rounded-2xl mb-12 text-center border border-secondary/20 max-w-3xl mx-auto"
+            >
+                <p class="font-medium text-text">
+                    Hinweis: Ich führe eine Privatpraxis und kann nicht direkt
+                    mit den gesetzlichen Krankenkassen abrechnen.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto" x-data="{ activeTab: 'privat' }">
+                <!-- Tabs -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button
+                        @click="activeTab = 'privat'"
+                        :class="{ 'bg-primary text-white border-primary shadow-lg': activeTab === 'privat', 'bg-transparent text-text border-secondary/50 hover:border-primary hover:text-primary': activeTab !== 'privat' }"
+                        class="px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 border-2 focus:outline-none"
+                    >
+                        Privat & Beihilfe
+                    </button>
+                    <button
+                        @click="activeTab = 'selbstzahler'"
+                        :class="{ 'bg-primary text-white border-primary shadow-lg': activeTab === 'selbstzahler', 'bg-transparent text-text border-secondary/50 hover:border-primary hover:text-primary': activeTab !== 'selbstzahler' }"
+                        class="px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 border-2 focus:outline-none"
+                    >
+                        Selbstzahler
+                    </button>
+                    <button
+                        @click="activeTab = 'coaching'"
+                        :class="{ 'bg-primary text-white border-primary shadow-lg': activeTab === 'coaching', 'bg-transparent text-text border-secondary/50 hover:border-primary hover:text-primary': activeTab !== 'coaching' }"
+                        class="px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 border-2 focus:outline-none"
+                    >
+                        Coaching & Beratung
+                    </button>
+                </div>
+
+                <!-- Content Container -->
+                <div
+                    class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-secondary/10 min-h-[400px]"
+                >
+                    <!-- Content: Privat -->
+                    <div
+                        x-show="activeTab === 'privat'"
+                        x-transition.opacity.duration.300ms
+                    >
+                        <h3
+                            class="font-serif text-2xl text-text mb-6 flex items-center gap-3"
+                        >
+                            <span class="w-2 h-8 bg-primary rounded-full"
+                            ></span>
+                            Privatversicherte & Beihilfe
+                        </h3>
+                        <div
+                            class="prose prose-lg text-text/90 leading-relaxed"
+                        >
+                            <p>
+                                Private Krankenversicherungen und
+                                Beihilfestellen übernehmen in der Regel die
+                                Kosten. Bitte klären Sie vorab:
+                            </p>
+                            <ul class="space-y-2 my-6">
+                                <li class="flex items-start gap-3">
+                                    <svg
+                                        class="w-6 h-6 text-primary shrink-0"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        ><path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        ></path></svg
+                                    >
+                                    <span
+                                        >Ist Psychotherapie im Leistungsumfang
+                                        enthalten?</span
+                                    >
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg
+                                        class="w-6 h-6 text-primary shrink-0"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        ><path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        ></path></svg
+                                    >
+                                    <span
+                                        >Gibt es Einschränkungen
+                                        (Sitzungsanzahl)?</span
+                                    >
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg
+                                        class="w-6 h-6 text-primary shrink-0"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        ><path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        ></path></svg
+                                    >
+                                    <span>Welcher GOP-Satz wird erstattet?</span
+                                    >
+                                </li>
+                            </ul>
+                            <p class="text-sm bg-gray-50 p-4 rounded-xl">
+                                <strong>Abrechnung:</strong> Nach Gebührenordnung
+                                für Psychotherapeuten (GOP), meist 2,3- bis 3,5-facher
+                                Satz.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Content: Selbstzahler -->
+                    <div
+                        x-show="activeTab === 'selbstzahler'"
+                        x-transition.opacity.duration.300ms
+                        style="display: none;"
+                    >
+                        <h3
+                            class="font-serif text-2xl text-text mb-6 flex items-center gap-3"
+                        >
+                            <span class="w-2 h-8 bg-primary rounded-full"
+                            ></span>
+                            Selbstzahler*innen
+                        </h3>
+                        <div
+                            class="prose prose-lg text-text/90 leading-relaxed"
+                        >
+                            <p class="mb-6">
+                                Die Kosten selbst zu tragen kann sinnvoll sein,
+                                um Diagnosen in der Versicherungsakte zu
+                                vermeiden (z.B. vor Verbeamtung oder Abschluss
+                                von Versicherungen). Zudem entfallen Wartezeiten
+                                auf Gutachterverfahren.
+                            </p>
+
+                            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                <div
+                                    class="bg-white p-6 rounded-2xl border border-primary/20 shadow-sm hover:shadow-md transition-all"
+                                >
+                                    <span
+                                        class="block text-sm text-text/80 font-bold uppercase tracking-wider mb-2"
+                                        >Einzelsitzung</span
+                                    >
+                                    <span
+                                        class="block text-3xl font-serif text-primary"
+                                        >100 €</span
+                                    >
+                                    <span
+                                        class="block text-sm text-text/80 mt-1"
+                                        >pro 50 Minuten</span
+                                    >
+                                </div>
+                                <div
+                                    class="bg-gray-50 p-6 rounded-2xl border border-gray-100"
+                                >
+                                    <span
+                                        class="block text-sm text-text/60 uppercase tracking-wider mb-2"
+                                        >Gruppentherapie</span
+                                    >
+                                    <span
+                                        class="block text-xl font-serif text-text"
+                                        >Reduzierter Tarif</span
+                                    >
+                                    <span
+                                        class="block text-sm text-text/60 mt-1"
+                                        >je nach Größe & Frequenz</span
+                                    >
+                                </div>
+                            </div>
+
+                            <p class="text-sm italic">
+                                * Kosten können ggf. als „außergewöhnliche
+                                Belastungen“ steuerlich geltend gemacht werden.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Content: Coaching -->
+                    <div
+                        x-show="activeTab === 'coaching'"
+                        x-transition.opacity.duration.300ms
+                        style="display: none;"
+                    >
+                        <h3
+                            class="font-serif text-2xl text-text mb-6 flex items-center gap-3"
+                        >
+                            <span class="w-2 h-8 bg-primary rounded-full"
+                            ></span>
+                            Beratung & Coaching
+                        </h3>
+                        <div
+                            class="prose prose-lg text-text/90 leading-relaxed"
+                        >
+                            <p class="mb-8">
+                                Paartherapie, Familiengespräche oder
+                                berufsbezogenes Coaching sind keine
+                                Kassenleistungen. Diese Investition in Ihre
+                                Lebensqualität und Beziehungen wird privat
+                                getragen.
+                            </p>
+
+                            <div
+                                class="bg-white p-8 rounded-2xl border border-primary/20 shadow-sm mb-6"
+                            >
+                                <h4 class="font-serif text-xl text-text mb-4">
+                                    Honorarsatz
+                                </h4>
+                                <p class="text-text/80">
+                                    Die Kosten orientieren sich am Satz für
+                                    Selbstzahler (siehe dort). Für Paar- und
+                                    Familiengespräche (oft 90 Min.) wird das
+                                    Honorar entsprechend angepasst.
+                                </p>
+                            </div>
+
+                            <p class="text-sm">
+                                * Coaching kann unter Umständen als
+                                Werbungskosten steuerlich abgesetzt werden.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="mt-24 max-w-3xl mx-auto" data-aos="fade-up">
+            <h3 class="font-serif text-3xl text-text mb-12 text-center">
+                Häufige Fragen
+            </h3>
+
+            <div class="space-y-4" x-data="{ selected: null }">
+                <!-- FAQ Item 1 -->
+                <div
+                    class="bg-white border border-secondary/20 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
+                >
+                    <button
+                        @click="selected !== 1 ? selected = 1 : selected = null"
+                        class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                    >
+                        <span class="font-serif text-lg text-text font-medium"
+                            >Wie lange dauert eine Sitzung?</span
+                        >
+                        <span
+                            class="ml-4 transform transition-transform duration-300 text-primary"
+                            :class="selected === 1 ? 'rotate-180' : ''"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div
+                        x-show="selected === 1"
+                        x-collapse
+                        class="px-6 pb-6 text-text/80 leading-relaxed"
+                    >
+                        Eine Therapiesitzung dauert in der Regel <strong
+                            >50 Minuten</strong
+                        >. Diese Zeit ist exklusiv für Sie reserviert.
+                        Doppelsitzungen oder kürzere Frequenzen sind nach
+                        Absprache möglich.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div
+                    class="bg-white border border-secondary/20 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
+                >
+                    <button
+                        @click="selected !== 2 ? selected = 2 : selected = null"
+                        class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                    >
+                        <span class="font-serif text-lg text-text font-medium"
+                            >Kann ich auch online Termine wahrnehmen?</span
+                        >
+                        <span
+                            class="ml-4 transform transition-transform duration-300 text-primary"
+                            :class="selected === 2 ? 'rotate-180' : ''"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div
+                        x-show="selected === 2"
+                        x-collapse
+                        class="px-6 pb-6 text-text/80 leading-relaxed"
+                    >
+                        Ja, ich biete auch <strong>Videosprechstunden</strong> an.
+                        Dies ist besonders praktisch, wenn Sie beruflich viel unterwegs
+                        sind oder nicht in die Praxis kommen können. Die Abrechnung
+                        erfolgt analog zu Präsenzsitzungen.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div
+                    class="bg-white border border-secondary/20 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
+                >
+                    <button
+                        @click="selected !== 3 ? selected = 3 : selected = null"
+                        class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                    >
+                        <span class="font-serif text-lg text-text font-medium"
+                            >Wie schnell bekomme ich einen Termin?</span
+                        >
+                        <span
+                            class="ml-4 transform transition-transform duration-300 text-primary"
+                            :class="selected === 3 ? 'rotate-180' : ''"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div
+                        x-show="selected === 3"
+                        x-collapse
+                        class="px-6 pb-6 text-text/80 leading-relaxed"
+                    >
+                        Ich bemühe mich, Erstgespräche zeitnah anzubieten, oft
+                        innerhalb von <strong>1-2 Wochen</strong>. Für einen
+                        regulären Therapieplatz können Wartezeiten entstehen,
+                        über die ich Sie im Erstgespräch transparent informiere.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div
+                    class="bg-white border border-secondary/20 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
+                >
+                    <button
+                        @click="selected !== 4 ? selected = 4 : selected = null"
+                        class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                    >
+                        <span class="font-serif text-lg text-text font-medium"
+                            >Muss ich eine Diagnose haben?</span
+                        >
+                        <span
+                            class="ml-4 transform transition-transform duration-300 text-primary"
+                            :class="selected === 4 ? 'rotate-180' : ''"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div
+                        x-show="selected === 4"
+                        x-collapse
+                        class="px-6 pb-6 text-text/80 leading-relaxed"
+                    >
+                        Für eine Kostenübernahme durch die Krankenkasse ist eine
+                        Diagnose nach ICD-10 erforderlich. Wenn Sie als <strong
+                            >Selbstzahler</strong
+                        > kommen oder ein <strong>Coaching</strong> buchen, wird
+                        keine Diagnose an die Kasse übermittelt.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

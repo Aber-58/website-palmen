@@ -1,22 +1,204 @@
+---
+import "@fontsource/cormorant-garamond";
+import "@fontsource/lato";
+import "aos/dist/aos.css";
+
+import PasswordGate from "../components/PasswordGate.astro";
+import ScrollToTop from "../components/ScrollToTop.astro";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="de" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="Privatpraxis für Psychotherapie & Psychologie in Waldkirch. Tiefenpsychologisch fundiert, körperorientiert und naturverbunden."
+		/>
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
+	<body class="bg-background text-text font-sans antialiased">
+		<PasswordGate />
+		<header
+			class="fixed w-full top-0 z-50 bg-background/90 backdrop-blur-sm transition-all duration-300"
+			x-data="{ atTop: true, mobileMenuOpen: false }"
+			@scroll.window="atTop = (window.pageYOffset > 20) ? false : true"
+			:class="{ 'shadow-sm py-2': !atTop, 'py-6': atTop }"
+		>
+			<div
+				class="container mx-auto px-6 flex justify-between items-center"
+			>
+				<a href="/" class="flex items-center gap-3 group">
+					<img
+						src="/assets/Logo_palmen.png"
+						alt="Logo"
+						class="w-12 h-auto group-hover:opacity-80 transition-opacity duration-300"
+					/>
+					<div class="flex flex-col">
+						<span
+							class="font-serif text-xl md:text-2xl tracking-wide text-primary leading-none group-hover:text-text transition-colors duration-300"
+						>
+							Praxis Palmen
+						</span>
+						<span
+							class="text-xs md:text-sm text-text/60 font-light tracking-widest uppercase"
+						>
+							Privatpraxis
+						</span>
+					</div>
+				</a>
+
+				<!-- Desktop Menu -->
+				<nav class="hidden md:flex space-x-8 text-lg font-medium">
+					<a
+						href="/"
+						class={`transition-colors duration-300 hover:text-primary ${Astro.url.pathname === "/" ? "text-primary font-bold border-b-2 border-primary" : "text-text/80"}`}
+						>Start</a
+					>
+					<a
+						href="/angebot"
+						class={`transition-colors duration-300 hover:text-primary ${Astro.url.pathname.startsWith("/angebot") ? "text-primary font-bold border-b-2 border-primary" : "text-text/80"}`}
+						>Angebot</a
+					>
+					<a
+						href="/ablauf-kosten"
+						class={`transition-colors duration-300 hover:text-primary ${Astro.url.pathname.startsWith("/ablauf-kosten") ? "text-primary font-bold border-b-2 border-primary" : "text-text/80"}`}
+						>Ablauf & Kosten</a
+					>
+					<a
+						href="/ueber-mich"
+						class={`transition-colors duration-300 hover:text-primary ${Astro.url.pathname.startsWith("/ueber-mich") ? "text-primary font-bold border-b-2 border-primary" : "text-text/80"}`}
+						>Über mich</a
+					>
+					<a
+						href="/kontakt"
+						class={`transition-colors duration-300 hover:text-primary ${Astro.url.pathname.startsWith("/kontakt") ? "text-primary font-bold border-b-2 border-primary" : "text-text/80"}`}
+						>Kontakt</a
+					>
+				</nav>
+
+				<!-- Mobile Menu Button -->
+				<button
+					@click="mobileMenuOpen = !mobileMenuOpen"
+					class="md:hidden focus:outline-none"
+				>
+					<svg
+						class="w-6 h-6"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+				</button>
+			</div>
+
+			<!-- Mobile Menu -->
+			<div
+				x-show="mobileMenuOpen"
+				@click.away="mobileMenuOpen = false"
+				x-transition
+				class="md:hidden bg-background absolute top-full left-0 w-full shadow-md py-4 px-6 flex flex-col space-y-4"
+			>
+				<a
+					href="/"
+					@click="mobileMenuOpen = false"
+					class="block hover:text-primary">Start</a
+				>
+				<a
+					href="/angebot"
+					@click="mobileMenuOpen = false"
+					class="block hover:text-primary">Angebot</a
+				>
+				<a
+					href="/ablauf-kosten"
+					@click="mobileMenuOpen = false"
+					class="block hover:text-primary">Ablauf & Kosten</a
+				>
+				<a
+					href="/ueber-mich"
+					@click="mobileMenuOpen = false"
+					class="block hover:text-primary">Über mich</a
+				>
+				<a
+					href="/kontakt"
+					@click="mobileMenuOpen = false"
+					class="block hover:text-primary">Kontakt</a
+				>
+			</div>
+		</header>
+
+		<main>
+			<slot />
+		</main>
+
+		<footer class="bg-secondary/20 py-12 mt-20">
+			<div class="container mx-auto px-6 text-center space-y-4">
+				<p class="font-serif text-xl">Privatpraxis Kathrin Palmen</p>
+				<p class="text-sm opacity-80">
+					Schillerstraße 11, 79183 Waldkirch
+				</p>
+
+				<!-- Crisis Info -->
+				<div
+					class="py-4 border-t border-secondary/30 border-b max-w-md mx-auto my-6"
+				>
+					<p
+						class="text-xs text-text/60 mb-1 font-bold uppercase tracking-wider"
+					>
+						Im Notfall
+					</p>
+					<p class="text-sm text-text/80">
+						In akuten Krisenfällen wenden Sie sich bitte an den
+						Notruf <strong>112</strong> oder die Telefonseelsorge <strong
+							>0800 111 0 111</strong
+						>.
+					</p>
+				</div>
+
+				<div class="flex justify-center space-x-6 text-sm mt-4">
+					<a href="/impressum" class="hover:underline">Impressum</a>
+					<a href="/datenschutz" class="hover:underline"
+						>Datenschutz</a
+					>
+				</div>
+				<p class="text-xs text-gray-500 mt-8">
+					&copy; {new Date().getFullYear()} Kathrin Palmen. Alle Rechte
+					vorbehalten.
+				</p>
+			</div>
+		</footer>
+
+		<ScrollToTop />
+
+		<script>
+			import Alpine from "alpinejs";
+			// @ts-ignore
+			window.Alpine = Alpine;
+			Alpine.start();
+		</script>
+
+		<script>
+			import AOS from "aos";
+			AOS.init({
+				duration: 1000,
+				once: true,
+				offset: 50,
+			});
+		</script>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

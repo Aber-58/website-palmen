@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+import introImage from "../assets/natur-kueste.jpg";
+---
+
+<section class="py-24 md:py-32 bg-background relative overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <!-- Text Content -->
+            <div class="w-full lg:w-1/2" data-aos="fade-right">
+                <span class="block text-primary font-serif italic text-xl mb-4">
+                    Willkommen
+                </span>
+                <h2
+                    class="font-serif text-4xl md:text-5xl text-text mb-8 leading-tight"
+                >
+                    Herzlich willkommen in meiner Privatpraxis Psychotherapie.
+                </h2>
+
+                <div class="space-y-6 text-lg text-text/90 leading-relaxed">
+                    <p>
+                        Wie schön, dass Sie den Weg hierher gefunden haben!
+                        Seien Sie willkommen mit allen Herausforderungen, die
+                        Sie gerade plagen mögen, mit allem Schmerz, den Sie
+                        fühlen und dem Leid, das Sie tragen.
+                    </p>
+                    <p>
+                        Aber genauso mit Ihren Wünschen, Ihren Träumen und Ihrer
+                        Lebendigkeit. Sie sind vielleicht auf meiner Seite
+                        gelandet, weil Sie bereit sind, erste Schritte in
+                        Richtung Heilung zu gehen und sich selbst wieder
+                        näherzukommen.
+                    </p>
+                    <p>
+                        Ich möchte Sie dabei unterstützen, Wege und Lösungen zu
+                        finden, die es Ihnen ermöglichen, zu einem leichteren,
+                        erfüllteren Leben zu finden. Ich lade Sie herzlich ein,
+                        sich auf diesen Seiten über mich und meine Arbeitsweise
+                        zu informieren.
+                    </p>
+                </div>
+
+                <div class="mt-10">
+                    <a
+                        href="/angebot"
+                        class="inline-block border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white transition-all duration-300 font-medium tracking-wide uppercase text-sm"
+                    >
+                        Mehr über mein Angebot
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image -->
+            <div class="w-full lg:w-1/2" data-aos="fade-left">
+                <div
+                    class="relative rounded-[2rem] overflow-hidden shadow-xl aspect-[4/5] group"
+                >
+                    <Image
+                        src={introImage}
+                        alt="Küstenlandschaft"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div
+                        class="absolute inset-0 bg-primary/10 mix-blend-multiply"
+                    >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

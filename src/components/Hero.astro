@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../assets/natur-sonnenuntergang.jpg";
+---
+
+<section
+    id="start"
+    class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden"
+>
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+        <Image
+            src={heroImage}
+            alt="Sunset over nature"
+            class="w-full h-full object-cover"
+            quality="high"
+        />
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/20"
+        >
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div
+        class="relative z-10 container mx-auto px-6 text-center max-w-5xl pt-20"
+    >
+        <h1
+            data-aos="fade-up"
+            data-aos-duration="1200"
+            class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1] mb-8 tracking-tight drop-shadow-lg"
+        >
+            Heilung beginnt dort,<br /> wo wir uns in unserer <span
+                class="italic text-secondary">Ganzheit</span
+            > gesehen fühlen.
+        </h1>
+
+        <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            class="text-lg md:text-2xl text-white/90 mb-12 tracking-wide max-w-3xl mx-auto leading-relaxed drop-shadow-md"
+        >
+            Privatpraxis für Psychotherapie & Psychologie in Waldkirch. <br
+                class="hidden md:block"
+            />
+            Tiefenpsychologisch fundiert, körperorientiert und naturverbunden.
+        </p>
+
+        <div
+            class="flex flex-col md:flex-row gap-6 justify-center items-center"
+            data-aos="fade-up"
+            data-aos-delay="200"
+        >
+            <a
+                href="/angebot"
+                class="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white hover:text-primary transition-all duration-300 text-lg tracking-wide uppercase"
+            >
+                Angebot ansehen
+            </a>
+            <a
+                href="/kontakt"
+                class="px-8 py-4 border-2 border-white/50 text-white rounded-full hover:bg-white hover:text-primary hover:border-white transition-all duration-300 text-lg tracking-wide uppercase"
+            >
+                Kontakt aufnehmen
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/70"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </div>
+</section>

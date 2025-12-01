@@ -1,0 +1,244 @@
+---
+import { Image } from "astro:assets";
+import portraitImage from "../assets/portrait-profil.jpg";
+---
+
+<section id="ueber-mich" class="py-24 bg-background relative overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-primary font-serif italic text-lg mb-2 block"
+                >Über mich</span
+            >
+            <h2 class="font-serif text-4xl md:text-5xl text-text mb-6">
+                Kathrin Palmen
+            </h2>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+            <!-- Image -->
+            <div class="w-full lg:w-5/12 sticky top-32" data-aos="fade-right">
+                <div
+                    class="relative rounded-[2rem] overflow-hidden shadow-xl aspect-[3/4] group"
+                >
+                    <Image
+                        src={portraitImage}
+                        alt="Kathrin Palmen"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div
+                        class="absolute inset-0 bg-primary/5 mix-blend-multiply"
+                    >
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center lg:text-left">
+                    <p class="font-serif text-2xl text-primary italic mb-2">
+                        "Jeder Weg beginnt mit dem ersten Schritt."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="w-full lg:w-7/12" data-aos="fade-left">
+                <div class="prose prose-lg text-text/90 leading-relaxed mb-16">
+                    <p>
+                        Als psychologische Psychotherapeutin ist es mir ein
+                        Anliegen, Ihnen einen Raum zu bieten, in dem Sie so sein
+                        dürfen, wie Sie sind. Mit all Ihren Fragen, Zweifeln,
+                        Schmerzen, aber auch mit Ihren Hoffnungen und
+                        Ressourcen.
+                    </p>
+                    <p>
+                        Mein therapeutischer Ansatz ist geprägt von
+                        Wertschätzung, Transparenz und einer Begegnung auf
+                        Augenhöhe. Ich arbeite tiefenpsychologisch fundiert,
+                        integriere aber gerne Elemente aus der Körpertherapie,
+                        der Hypnotherapie und kreativen Verfahren, um den
+                        Therapieprozess lebendig und individuell zu gestalten.
+                    </p>
+                </div>
+
+                <!-- Vita Timeline -->
+                <h3
+                    class="font-serif text-2xl text-text mb-8 border-b border-secondary/30 pb-4 inline-block"
+                >
+                    Vita & Qualifikationen
+                </h3>
+
+                <div
+                    class="space-y-8 border-l-2 border-secondary/20 pl-8 ml-4 relative"
+                >
+                    <!-- Item 1 -->
+                    <div class="relative">
+                        <span
+                            class="absolute -left-[41px] top-1.5 w-5 h-5 rounded-full border-4 border-background bg-primary"
+                        ></span>
+                        <span
+                            class="text-sm text-primary font-bold tracking-wider uppercase mb-1 block"
+                            >Seit 2024</span
+                        >
+                        <h4 class="text-lg font-medium text-text">
+                            Privatpraxis für Psychotherapie
+                        </h4>
+                        <p class="text-text/80">
+                            Niederlassung in eigener Praxis in Waldkirch.
+                        </p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative">
+                        <span
+                            class="absolute -left-[41px] top-1.5 w-5 h-5 rounded-full border-4 border-background bg-secondary"
+                        ></span>
+                        <span
+                            class="text-sm text-text/40 font-bold tracking-wider uppercase mb-1 block"
+                            >2023</span
+                        >
+                        <h4 class="text-lg font-medium text-text">
+                            Approbation
+                        </h4>
+                        <p class="text-text/80">
+                            Staatliche Anerkennung als Psychologische
+                            Psychotherapeutin (Tiefenpsychologisch fundierte
+                            Psychotherapie).
+                        </p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative">
+                        <span
+                            class="absolute -left-[41px] top-1.5 w-5 h-5 rounded-full border-4 border-background bg-secondary"
+                        ></span>
+                        <span
+                            class="text-sm text-text/40 font-bold tracking-wider uppercase mb-1 block"
+                            >2018 - 2023</span
+                        >
+                        <h4 class="text-lg font-medium text-text">
+                            Aus- & Weiterbildung
+                        </h4>
+                        <p class="text-text/80">
+                            Ausbildung am [Name des Instituts] in [Stadt].
+                            Tätigkeit in verschiedenen klinischen Settings
+                            (Psychosomatik, Psychiatrie).
+                        </p>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative">
+                        <span
+                            class="absolute -left-[41px] top-1.5 w-5 h-5 rounded-full border-4 border-background bg-secondary"
+                        ></span>
+                        <span
+                            class="text-sm text-text/40 font-bold tracking-wider uppercase mb-1 block"
+                            >2012 - 2018</span
+                        >
+                        <h4 class="text-lg font-medium text-text">
+                            Studium der Psychologie
+                        </h4>
+                        <p class="text-text/80">
+                            Bachelor und Master of Science an der [Universität].
+                            Schwerpunkte: Klinische Psychologie und [Weiterer
+                            Schwerpunkt].
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memberships & Quality -->
+            <div
+                class="mt-16 pt-12 border-t border-secondary/30"
+                data-aos="fade-up"
+            >
+                <h4 class="font-serif text-xl text-text mb-6">
+                    Qualitätssicherung & Mitgliedschaften
+                </h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Item 1 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div
+                            class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-3 border border-secondary/20 group-hover:border-primary/50 transition-colors"
+                        >
+                            <span
+                                class="font-serif text-primary font-bold text-xl"
+                                >LPPK</span
+                            >
+                        </div>
+                        <span
+                            class="text-xs text-text/70 uppercase tracking-wide"
+                            >Landeskammer BW</span
+                        >
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div
+                            class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-3 border border-secondary/20 group-hover:border-primary/50 transition-colors"
+                        >
+                            <span
+                                class="font-serif text-primary font-bold text-xl"
+                                >DPtV</span
+                            >
+                        </div>
+                        <span
+                            class="text-xs text-text/70 uppercase tracking-wide"
+                            >Fachverband</span
+                        >
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div
+                            class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-3 border border-secondary/20 group-hover:border-primary/50 transition-colors"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-8 w-8 text-primary"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <span
+                            class="text-xs text-text/70 uppercase tracking-wide"
+                            >Regelmäßige Supervision</span
+                        >
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div
+                            class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-3 border border-secondary/20 group-hover:border-primary/50 transition-colors"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-8 w-8 text-primary"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                                ></path>
+                            </svg>
+                        </div>
+                        <span
+                            class="text-xs text-text/70 uppercase tracking-wide"
+                            >Stetige Fortbildung</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
