@@ -8,10 +8,12 @@ export default {
 				secondary: '#D6CFC7', // Sand/Terracotta
 				background: '#F9F9F7', // Soft Linen
 				text: '#2D2D2D', // Warm Anthracite
+				accent: '#E07A5F', // Warm Terracotta/Coral (Lebensfreude!)
 			},
 			fontFamily: {
 				serif: ['Cormorant Garamond', 'serif'],
 				sans: ['Lato', 'sans-serif'],
+				handwriting: ['Caveat', 'cursive'], // Für die persönliche Note
 			},
 		},
 	},

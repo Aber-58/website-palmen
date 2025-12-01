@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import introImage from "../assets/natur-kueste.jpg";
+import introImage from "../assets/palmen-praxis.png";
 ---
 
 <section class="py-24 md:py-32 bg-background relative overflow-hidden">
@@ -8,8 +8,10 @@ import introImage from "../assets/natur-kueste.jpg";
         <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <!-- Text Content -->
             <div class="w-full lg:w-1/2" data-aos="fade-right">
-                <span class="block text-primary font-serif italic text-xl mb-4">
-                    Willkommen
+                <span
+                    class="block text-accent font-handwriting text-3xl mb-4 transform -rotate-2 origin-bottom-left"
+                >
+                    Herzlich Willkommen!
                 </span>
                 <h2
                     class="font-serif text-4xl md:text-5xl text-text mb-8 leading-tight"
@@ -43,7 +45,7 @@ import introImage from "../assets/natur-kueste.jpg";
                 <div class="mt-10">
                     <a
                         href="/angebot"
-                        class="inline-block border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white transition-all duration-300 font-medium tracking-wide uppercase text-sm"
+                        class="inline-block bg-accent text-white px-8 py-4 rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl rounded-br-none hover:bg-accent/90 hover:scale-105 transition-all duration-300 font-medium tracking-wide shadow-lg shadow-accent/20"
                     >
                         Mehr über mein Angebot
                     </a>
@@ -53,11 +55,11 @@ import introImage from "../assets/natur-kueste.jpg";
             <!-- Image -->
             <div class="w-full lg:w-1/2" data-aos="fade-left">
                 <div
-                    class="relative rounded-[2rem] overflow-hidden shadow-xl aspect-[4/5] group"
+                    class="relative rounded-[2rem] rounded-tr-[5rem] rounded-bl-[5rem] overflow-hidden shadow-xl aspect-video group transform rotate-1 hover:rotate-0 transition-all duration-500"
                 >
                     <Image
                         src={introImage}
-                        alt="Küstenlandschaft"
+                        alt="Einblick in die Praxisräume"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div

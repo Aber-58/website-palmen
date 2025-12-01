@@ -1,6 +1,7 @@
 ---
 import "@fontsource/cormorant-garamond";
 import "@fontsource/lato";
+import "@fontsource/caveat";
 import "aos/dist/aos.css";
 
 import PasswordGate from "../components/PasswordGate.astro";
@@ -146,40 +147,77 @@ const { title } = Astro.props;
 			<slot />
 		</main>
 
-		<footer class="bg-secondary/20 py-12 mt-20">
-			<div class="container mx-auto px-6 text-center space-y-4">
-				<p class="font-serif text-xl">Privatpraxis Kathrin Palmen</p>
-				<p class="text-sm opacity-80">
-					Schillerstraße 11, 79183 Waldkirch
-				</p>
-
-				<!-- Crisis Info -->
+		<footer
+			class="bg-secondary/10 pt-16 pb-8 mt-24 border-t border-secondary/20"
+		>
+			<div class="container mx-auto px-6">
 				<div
-					class="py-4 border-t border-secondary/30 border-b max-w-md mx-auto my-6"
+					class="grid md:grid-cols-3 gap-12 mb-12 text-center md:text-left"
 				>
-					<p
-						class="text-xs text-text/60 mb-1 font-bold uppercase tracking-wider"
-					>
-						Im Notfall
-					</p>
-					<p class="text-sm text-text/80">
-						In akuten Krisenfällen wenden Sie sich bitte an den
-						Notruf <strong>112</strong> oder die Telefonseelsorge <strong
-							>0800 111 0 111</strong
-						>.
-					</p>
+					<!-- Column 1: Brand -->
+					<div class="space-y-4">
+						<h4 class="font-serif text-xl text-primary">
+							Privatpraxis Palmen
+						</h4>
+						<p class="text-sm text-text/80 leading-relaxed">
+							M.Sc. Psych. Kathrin Palmen<br />
+							Psychologische Psychotherapeutin
+						</p>
+						<p class="text-xs text-text/60">
+							Eintrag im Arztregister | Mitglied der LPPKJP
+						</p>
+					</div>
+
+					<!-- Column 2: Contact -->
+					<div class="space-y-4">
+						<h5
+							class="font-medium text-text uppercase tracking-wider text-xs"
+						>
+							Kontakt
+						</h5>
+						<p class="text-sm text-text/80 leading-relaxed">
+							Schillerstraße 11<br />
+							79183 Waldkirch
+						</p>
+						<a
+							href="/kontakt"
+							class="text-sm text-primary hover:underline block"
+							>Termin vereinbaren &rarr;</a
+						>
+					</div>
+
+					<!-- Column 3: Emergency -->
+					<div class="space-y-4">
+						<h5
+							class="font-medium text-text uppercase tracking-wider text-xs"
+						>
+							Im Notfall
+						</h5>
+						<p class="text-sm text-text/80 leading-relaxed">
+							Notruf: <strong>112</strong><br />
+							Telefonseelsorge: <strong>0800 111 0 111</strong>
+						</p>
+					</div>
 				</div>
 
-				<div class="flex justify-center space-x-6 text-sm mt-4">
-					<a href="/impressum" class="hover:underline">Impressum</a>
-					<a href="/datenschutz" class="hover:underline"
-						>Datenschutz</a
-					>
+				<!-- Bottom Bar -->
+				<div
+					class="border-t border-secondary/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text/50"
+				>
+					<p>&copy; {new Date().getFullYear()} Kathrin Palmen</p>
+					<div class="flex space-x-6">
+						<a
+							href="/impressum"
+							class="hover:text-primary transition-colors"
+							>Impressum</a
+						>
+						<a
+							href="/datenschutz"
+							class="hover:text-primary transition-colors"
+							>Datenschutz</a
+						>
+					</div>
 				</div>
-				<p class="text-xs text-gray-500 mt-8">
-					&copy; {new Date().getFullYear()} Kathrin Palmen. Alle Rechte
-					vorbehalten.
-				</p>
 			</div>
 		</footer>
 
