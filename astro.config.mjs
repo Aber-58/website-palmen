@@ -6,6 +6,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://www.palmen-psychotherapie.de', // Replace with your actual domain
+    site: 'https://www.praxis-palmen.de',
     integrations: [tailwind(), sitemap()],
 });

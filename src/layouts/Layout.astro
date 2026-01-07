@@ -25,9 +25,83 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/assets/Logo_palmen.png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body
+		<title>
+			{title} | Psychotherapie & Beratung in Waldkirch - Kathrin Palmen
+		</title>
+
+		<!-- SEO Meta Tags -->
+		<link
+			rel="canonical"
+			href={new URL(
+				Astro.url.pathname,
+				"https://www.praxis-palmen.de",
+			).toString()}
+		/>
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<!-- Open Graph / Social Media -->
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:url"
+			content={new URL(
+				Astro.url.pathname,
+				"https://www.praxis-palmen.de",
+			).toString()}
+		/>
+		<meta
+			property="og:title"
+			content={`${title} | Psychotherapie & Beratung`}
+		/>
+		<meta
+			property="og:description"
+			content="Privatpraxis für Psychotherapie in Waldkirch. Tiefenpsychologisch fundiert & körperorientiert. Jetzt Termin vereinbaren."
+		/>
+		<meta
+			property="og:image"
+			content="https://www.praxis-palmen.de/assets/portrait.jpg"
+		/>
+
+		<!-- Schema.org JSON-LD (Local Business) -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Physician",
+				"name": "Psychotherapiepraxis Kathrin Palmen",
+				"image": "https://www.praxis-palmen.de/assets/portrait.jpg",
+				"@id": "https://www.praxis-palmen.de",
+				"url": "https://www.praxis-palmen.de",
+				"telephone": "+491634252042",
+				"email": "kontakt@palmen-psychotherapie.de",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Schillerstraße 11",
+					"addressLocality": "Waldkirch",
+					"postalCode": "79183",
+					"addressCountry": "DE"
+				},
+				"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": 48.0938,
+					"longitude": 7.9626
+				},
+				"openingHoursSpecification": [
+					{
+						"@type": "OpeningHoursSpecification",
+						"dayOfWeek": [
+							"Monday",
+							"Tuesday",
+							"Wednesday",
+							"Thursday",
+							"Friday"
+						],
+						"opens": "09:00",
+						"closes": "18:00"
+					}
+				],
+				"priceRange": "$$"
+			}
+		</script>
+	</head><body
 		class="bg-background text-text font-sans antialiased text-base md:text-lg transition-colors duration-700 relative"
 		id="body-bg"
 	>
