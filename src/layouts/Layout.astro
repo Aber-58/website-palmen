@@ -27,16 +27,61 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-background text-text font-sans antialiased">
+	<body
+		class="bg-background text-text font-sans antialiased text-base md:text-lg transition-colors duration-700 relative"
+		id="body-bg"
+	>
+		<!-- Background "Blur Orbs" & Dotted Texture -->
+		<!-- Background "Blur Orbs" -->
+		<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+			<!-- Orbs (High Visibility Mode) -->
+			<!-- Orb 1: Sand/Secondary (Top Left) -->
+			<div
+				class="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-secondary/50 rounded-full blur-[100px] animate-float-slow"
+			>
+			</div>
+			<!-- Orb 2: Terracotta/Accent (Top Right) -->
+			<div
+				class="absolute top-[10%] right-[-10%] w-[50vw] h-[50vw] bg-accent/30 rounded-full blur-[90px] animate-float-delayed"
+			>
+			</div>
+			<!-- Orb 3: Green/Primary (Bottom Left) -->
+			<div
+				class="absolute bottom-[-10%] left-[20%] w-[70vw] h-[70vw] bg-primary/30 rounded-full blur-[110px] animate-pulse-slow"
+			>
+			</div>
+		</div>
 		<PasswordGate />
+		<!-- ... Header code ... -->
 		<header
-			class="fixed w-full top-0 z-50 bg-background/90 backdrop-blur-sm transition-all duration-300"
-			x-data="{ atTop: true, mobileMenuOpen: false }"
-			@scroll.window="atTop = (window.pageYOffset > 20) ? false : true"
-			:class="{ 'shadow-sm py-2': !atTop, 'py-6': atTop }"
+			class="fixed w-full top-0 z-50 transition-all duration-500 transform bg-background/95 backdrop-blur-md"
+			x-data="{
+                visible: true,
+                lastScrollY: 0,
+                mobileMenuOpen: false,
+                atTop: true
+            }"
+			@scroll.window="
+                const currentScrollY = window.pageYOffset;
+                if (currentScrollY <= 100) {
+                    visible = true;
+                } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    visible = false; 
+                } else {
+                    visible = true;
+                }
+                atTop = (currentScrollY > 20) ? false : true;
+                lastScrollY = currentScrollY;
+            "
+			:class="{ 
+                '-translate-y-full': !visible, 
+                'translate-y-0': visible,
+                'shadow-sm py-3': !atTop, 
+                'py-6': atTop 
+            }"
 		>
 			<div
-				class="container mx-auto px-6 flex justify-between items-center"
+				class="container mx-auto px-6 max-w-7xl flex justify-between items-center"
 			>
 				<a href="/" class="flex items-center gap-3 group">
 					<img
@@ -59,30 +104,89 @@ const { title } = Astro.props;
 				</a>
 
 				<!-- Desktop Menu -->
-				<nav class="hidden md:flex space-x-8 text-lg font-medium">
+				<nav
+					class="hidden md:flex items-center space-x-8 text-lg font-medium"
+				>
 					<a
 						href="/"
-						class={`transition-colors duration-300 hover:text-primary ${Astro.url.pathname === "/" ? "text-primary font-bold border-b-2 border-primary" : "text-text/80"}`}
+						class={`transition-all duration-300 border-b-2 hover:text-primary ${Astro.url.pathname === "/" ? "text-primary border-primary" : "text-text/80 border-transparent hover:border-primary/30"}`}
 						>Start</a
 					>
-					<a
-						href="/angebot"
-						class={`transition-colors duration-300 hover:text-primary ${Astro.url.pathname.startsWith("/angebot") ? "text-primary font-bold border-b-2 border-primary" : "text-text/80"}`}
-						>Angebot</a
-					>
+					<div class="relative group">
+						<a
+							href="/angebot"
+							class={`transition-all duration-300 border-b-2 hover:text-primary flex items-center gap-1 ${Astro.url.pathname.startsWith("/angebot") ? "text-primary border-primary" : "text-text/80 border-transparent hover:border-primary/30"}`}
+						>
+							Angebot
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								><path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M19 9l-7 7-7-7"></path></svg
+							>
+						</a>
+
+						<!-- Dropdown -->
+						<div
+							class="absolute top-full left-1/2 -translate-x-1/2 pt-6 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50"
+						>
+							<div
+								class="bg-white/90 backdrop-blur-xl rounded-[1.5rem] shadow-xl border border-white/60 overflow-hidden w-72 p-3 ring-1 ring-black/5 relative"
+							>
+								<div
+									class="absolute inset-0 bg-gradient-to-br from-white via-white/80 to-secondary/10 opacity-50 pointer-events-none"
+								>
+								</div>
+								<a
+									href="/angebot#psychotherapie"
+									class="relative block px-5 py-4 rounded-2xl text-text/80 hover:text-primary hover:bg-white hover:shadow-sm transition-all duration-300 group/item"
+								>
+									<span
+										class="block font-serif text-lg mb-0.5 group-hover/item:translate-x-1 transition-transform"
+										>Psychotherapie</span
+									>
+									<span
+										class="block text-xs uppercase tracking-widest opacity-50"
+										>Tiefenpsychologie</span
+									>
+								</a>
+								<a
+									href="/angebot#methoden"
+									class="relative block px-5 py-4 rounded-2xl text-text/80 hover:text-primary hover:bg-white hover:shadow-sm transition-all duration-300 group/item mt-1"
+								>
+									<span
+										class="block font-serif text-lg mb-0.5 group-hover/item:translate-x-1 transition-transform"
+										>Ergänzende Methoden</span
+									>
+									<span
+										class="block text-xs uppercase tracking-widest opacity-50"
+										>Körper, Atem, Kreativität</span
+									>
+								</a>
+							</div>
+						</div>
+					</div>
 					<a
 						href="/ablauf-kosten"
-						class={`transition-colors duration-300 hover:text-primary ${Astro.url.pathname.startsWith("/ablauf-kosten") ? "text-primary font-bold border-b-2 border-primary" : "text-text/80"}`}
+						class={`transition-all duration-300 border-b-2 hover:text-primary ${Astro.url.pathname.startsWith("/ablauf-kosten") ? "text-primary border-primary" : "text-text/80 border-transparent hover:border-primary/30"}`}
 						>Ablauf & Kosten</a
 					>
 					<a
 						href="/ueber-mich"
-						class={`transition-colors duration-300 hover:text-primary ${Astro.url.pathname.startsWith("/ueber-mich") ? "text-primary font-bold border-b-2 border-primary" : "text-text/80"}`}
+						class={`transition-all duration-300 border-b-2 hover:text-primary ${Astro.url.pathname.startsWith("/ueber-mich") ? "text-primary border-primary" : "text-text/80 border-transparent hover:border-primary/30"}`}
 						>Über mich</a
 					>
+
+					<!-- CTA Button Style for Contact -->
 					<a
 						href="/kontakt"
-						class={`transition-colors duration-300 hover:text-primary ${Astro.url.pathname.startsWith("/kontakt") ? "text-primary font-bold border-b-2 border-primary" : "text-text/80"}`}
+						class={`px-6 py-2 rounded-full border-2 border-primary bg-primary text-white transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md hover:bg-primary/90 hover:border-primary/90`}
 						>Kontakt</a
 					>
 				</nav>
@@ -90,10 +194,11 @@ const { title } = Astro.props;
 				<!-- Mobile Menu Button -->
 				<button
 					@click="mobileMenuOpen = !mobileMenuOpen"
-					class="md:hidden focus:outline-none"
+					class="md:hidden focus:outline-none p-2 rounded-md hover:bg-secondary/10 transition-colors"
+					aria-label="Menü öffnen"
 				>
 					<svg
-						class="w-6 h-6"
+						class="w-6 h-6 text-text"
 						fill="none"
 						stroke="currentColor"
 						viewBox="0 0 24 24"
@@ -108,49 +213,102 @@ const { title } = Astro.props;
 				</button>
 			</div>
 
-			<!-- Mobile Menu -->
+			<!-- Mobile Menu (Fade & Slide) -->
 			<div
 				x-show="mobileMenuOpen"
 				@click.away="mobileMenuOpen = false"
-				x-transition
-				class="md:hidden bg-background absolute top-full left-0 w-full shadow-md py-4 px-6 flex flex-col space-y-4"
+				x-transition:enter="transition ease-out duration-300"
+				x-transition:enter-start="opacity-0 -translate-y-4"
+				x-transition:enter-end="opacity-100 translate-y-0"
+				x-transition:leave="transition ease-in duration-200"
+				x-transition:leave-start="opacity-100 translate-y-0"
+				x-transition:leave-end="opacity-0 -translate-y-4"
+				class="md:hidden bg-background/95 backdrop-blur-lg absolute top-full left-0 w-full shadow-lg border-t border-secondary/10 py-6 px-6 flex flex-col space-y-6"
 			>
 				<a
 					href="/"
 					@click="mobileMenuOpen = false"
-					class="block hover:text-primary">Start</a
+					class="block text-xl font-medium text-text hover:text-primary"
+					>Start</a
 				>
-				<a
-					href="/angebot"
-					@click="mobileMenuOpen = false"
-					class="block hover:text-primary">Angebot</a
-				>
+				<div x-data="{ expanded: false }" class="block">
+					<button
+						@click="expanded = !expanded"
+						class="flex items-center justify-between w-full text-xl font-medium text-text hover:text-primary focus:outline-none"
+					>
+						<span>Angebot</span>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-5 w-5 transition-transform duration-300"
+							:class="expanded ? 'rotate-180' : ''"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							><path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M19 9l-7 7-7-7"></path></svg
+						>
+					</button>
+					<div
+						x-show="expanded"
+						x-collapse
+						class="pl-4 mt-2 space-y-3 border-l-2 border-primary/10 ml-1"
+					>
+						<a
+							href="/angebot#psychotherapie"
+							@click="mobileMenuOpen = false"
+							class="block text-lg text-text/80 hover:text-primary"
+						>
+							Psychotherapie & Beratung
+						</a>
+						<a
+							href="/angebot#methoden"
+							@click="mobileMenuOpen = false"
+							class="block text-lg text-text/80 hover:text-primary"
+						>
+							Ergänzende Methoden
+						</a>
+					</div>
+				</div>
 				<a
 					href="/ablauf-kosten"
 					@click="mobileMenuOpen = false"
-					class="block hover:text-primary">Ablauf & Kosten</a
+					class="block text-xl font-medium text-text hover:text-primary"
+					>Ablauf & Kosten</a
 				>
 				<a
 					href="/ueber-mich"
 					@click="mobileMenuOpen = false"
-					class="block hover:text-primary">Über mich</a
+					class="block text-xl font-medium text-text hover:text-primary"
+					>Über mich</a
 				>
 				<a
 					href="/kontakt"
 					@click="mobileMenuOpen = false"
-					class="block hover:text-primary">Kontakt</a
+					class="block text-xl font-bold text-primary hover:text-primary/80"
+					>Kontakt</a
 				>
 			</div>
 		</header>
 
-		<main>
+		<!-- Main Content Slot -->
+		<main class="relative z-10">
 			<slot />
 		</main>
 
-		<footer
-			class="bg-secondary/10 pt-16 pb-8 mt-24 border-t border-secondary/20"
-		>
-			<div class="container mx-auto px-6">
+		<footer class="relative z-10 pt-16 pb-8">
+			<!-- Opaque background to block orbs -->
+			<div class="absolute inset-0 bg-background"></div>
+			<!-- Tint overlay for design -->
+			<div
+				class="absolute inset-0 bg-secondary/10 border-t border-secondary/20"
+			>
+			</div>
+
+			<!-- Footer Content -->
+			<div class="container mx-auto px-6 max-w-7xl relative">
 				<div
 					class="grid md:grid-cols-3 gap-12 mb-12 text-center md:text-left"
 				>
@@ -223,6 +381,7 @@ const { title } = Astro.props;
 
 		<ScrollToTop />
 
+		<!-- Alpine & AOS Scripts -->
 		<script>
 			import Alpine from "alpinejs";
 			// @ts-ignore
@@ -238,5 +397,76 @@ const { title } = Astro.props;
 				offset: 50,
 			});
 		</script>
+
+		<script>
+			/* Scroll gradient removed as requested to keep background clean and consistent */
+		</script>
+
+		<!-- Custom Cursor Follower -->
+		<div
+			id="cursor-follower"
+			class="fixed w-6 h-6 bg-primary/40 rounded-full pointer-events-none z-[9999] mix-blend-multiply blur-[2px] hidden md:block transition-transform duration-75 ease-out will-change-transform"
+			style="left: 0; top: 0; transform: translate(-100px, -100px);"
+		>
+		</div>
+
+		<script>
+			const cursor = document.getElementById("cursor-follower");
+
+			document.addEventListener("mousemove", (e) => {
+				if (cursor) {
+					// Translate directly to mouse position (centering the 24px circle: -12px)
+					cursor.style.transform = `translate(${e.clientX - 12}px, ${e.clientY - 12}px)`;
+				}
+			});
+		</script>
+
+		<style is:global>
+			@keyframes float-slow {
+				0% {
+					transform: translate(0, 0) rotate(0deg);
+				}
+				33% {
+					transform: translate(30px, -50px) rotate(10deg);
+				}
+				66% {
+					transform: translate(-20px, 20px) rotate(-5deg);
+				}
+				100% {
+					transform: translate(0, 0) rotate(0deg);
+				}
+			}
+			@keyframes float-delayed {
+				0% {
+					transform: translate(0, 0) scale(1);
+				}
+				50% {
+					transform: translate(-30px, 40px) scale(1.1);
+				}
+				100% {
+					transform: translate(0, 0) scale(1);
+				}
+			}
+			@keyframes pulse-slow {
+				0%,
+				100% {
+					opacity: 0.15;
+					transform: scale(1);
+				}
+				50% {
+					opacity: 0.25;
+					transform: scale(1.2);
+				}
+			}
+			.animate-float-slow {
+				animation: float-slow 15s ease-in-out infinite;
+			}
+			.animate-float-delayed {
+				animation: float-delayed 18s ease-in-out infinite reverse;
+			}
+			.animate-pulse-slow {
+				animation: pulse-slow 12s ease-in-out infinite;
+			}
+		</style>
 	</body>
 </html>

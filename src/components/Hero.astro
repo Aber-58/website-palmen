@@ -8,6 +8,7 @@ import heroImage from "../assets/natur-sonnenuntergang.jpg";
     class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden"
 >
     <!-- Background Image -->
+    <!-- Background Image -->
     <div class="absolute inset-0 z-0">
         <Image
             src={heroImage}
@@ -15,19 +16,29 @@ import heroImage from "../assets/natur-sonnenuntergang.jpg";
             class="w-full h-full object-cover"
             quality="high"
         />
-        <div class="absolute inset-0 bg-black/30"></div>
+
+        <!-- 1. Green Tint (Nature Atmosphere) -->
+        <div class="absolute inset-0 bg-primary/30 mix-blend-multiply"></div>
+
+        <!-- 2. Spotlight/Vignette (Darkens ONLY the center for text, keeps edges bright) -->
         <div
-            class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/20"
+            class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.6)_0%,rgba(0,0,0,0)_70%)]"
+        >
+        </div>
+
+        <!-- 3. Bottom Fade (Smooth transition) -->
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"
         >
         </div>
     </div>
 
     <!-- Content -->
     <div
-        class="relative z-10 container mx-auto px-6 text-center max-w-5xl pt-20"
+        class="relative z-10 container mx-auto px-4 text-center max-w-5xl pt-24 pb-12 md:pt-20"
     >
         <span
-            class="block font-handwriting text-3xl md:text-4xl text-accent mb-4 transform -rotate-3 origin-bottom-left drop-shadow-md"
+            class="block font-handwriting text-2xl md:text-4xl text-accent mb-2 md:mb-4 transform -rotate-3 origin-bottom-left drop-shadow-lg"
             data-aos="fade-down"
             data-aos-delay="100"
         >
@@ -36,54 +47,55 @@ import heroImage from "../assets/natur-sonnenuntergang.jpg";
         <h1
             data-aos="fade-up"
             data-aos-duration="1200"
-            class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1] mb-8 tracking-tight drop-shadow-lg"
+            class="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1] mb-6 md:mb-8 tracking-tight drop-shadow-xl break-words hyphens-auto"
         >
             Heilung beginnt dort,<br /> wo wir uns in unserer <span
-                class="italic text-secondary">Ganzheit</span
+                class="italic text-secondary drop-shadow-lg">Ganzheit</span
             > gesehen fühlen.
         </h1>
 
         <p
             data-aos="fade-up"
             data-aos-delay="200"
-            class="text-lg md:text-2xl text-white/90 mb-12 tracking-wide max-w-3xl mx-auto leading-relaxed drop-shadow-md"
+            class="text-lg md:text-3xl text-white/95 mb-8 md:mb-12 tracking-wide max-w-4xl mx-auto leading-relaxed drop-shadow-md font-light"
         >
             <span
-                class="block font-medium mb-2 uppercase tracking-widest text-base md:text-lg opacity-90"
+                class="block font-medium mb-1 md:mb-3 uppercase tracking-widest text-base md:text-xl opacity-100 drop-shadow-sm"
                 >Privatpraxis für Psychotherapie</span
             >
-            <span class="block text-xl md:text-3xl font-serif italic"
+            <span
+                class="block text-xl md:text-4xl font-serif italic drop-shadow-md"
                 >M.Sc. Psych. Kathrin Palmen</span
             >
         </p>
 
         <div
-            class="flex flex-col md:flex-row gap-6 justify-center items-center"
+            class="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center w-full max-w-md sm:max-w-none mx-auto"
             data-aos="fade-up"
             data-aos-delay="200"
         >
             <a
                 href="/angebot"
-                class="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white hover:text-primary transition-all duration-300 text-lg tracking-wide uppercase"
+                class="w-full sm:w-auto px-6 py-3 md:px-10 md:py-5 border-2 border-white text-white rounded-full hover:bg-white hover:text-primary transition-all duration-300 text-base md:text-xl tracking-wide uppercase font-semibold shadow-lg hover:shadow-xl hover:-translate-y-1 block drop-shadow-md"
             >
                 Angebot ansehen
             </a>
             <a
                 href="/kontakt"
-                class="px-8 py-4 border-2 border-white/50 text-white rounded-full hover:bg-white hover:text-primary hover:border-white transition-all duration-300 text-lg tracking-wide uppercase"
+                class="w-full sm:w-auto px-6 py-3 md:px-10 md:py-5 border-2 border-white/50 text-white rounded-full hover:bg-white hover:text-primary hover:border-white transition-all duration-300 text-base md:text-xl tracking-wide uppercase font-semibold shadow-lg hover:shadow-xl hover:-translate-y-1 block drop-shadow-md"
             >
                 Kontakt aufnehmen
             </a>
         </div>
     </div>
 
-    <!-- Scroll Indicator -->
+    <!-- Scroll Indicator (Hidden on very small screens if needed, or adjusted) -->
     <div
-        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/70"
+        class="absolute bottom-4 md:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/70 hidden sm:block"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-8 w-8"
+            class="h-6 w-6 md:h-8 md:w-8"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

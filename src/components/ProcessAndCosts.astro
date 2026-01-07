@@ -1,9 +1,8 @@
 ---
-import { Image } from "astro:assets";
-import breakImage from "../assets/meer-sonnenuntergang.jpg";
+
 ---
 
-<section id="ablauf-kosten" class="py-24 bg-white relative overflow-hidden">
+<section id="ablauf-kosten" class="py-24 bg-primary/5 relative overflow-hidden">
     <div class="container mx-auto px-6 max-w-5xl relative z-10">
         <!-- Header -->
         <div class="text-center mb-20" data-aos="fade-up">
@@ -28,7 +27,7 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
             <div class="relative">
                 <!-- Vertical Line (Desktop) -->
                 <div
-                    class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-secondary/30 -translate-x-1/2"
+                    class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-secondary/30 -translate-x-1/2 h-full z-0"
                 >
                 </div>
 
@@ -38,12 +37,12 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
                     data-aos="fade-up"
                 >
                     <div
-                        class="md:w-5/12 text-center md:text-right order-2 md:order-1 mt-4 md:mt-0"
+                        class="md:w-5/12 text-center md:text-right order-2 md:order-1 mt-6 md:mt-0 p-8 rounded-3xl bg-accent/5 hover:bg-accent/10 transition-colors border border-accent/10"
                     >
-                        <h4 class="font-serif text-2xl text-text mb-3">
+                        <h4 class="font-serif text-2xl text-accent mb-3">
                             1. Kontaktaufnahme
                         </h4>
-                        <p class="text-text/90 leading-relaxed">
+                        <p class="text-text/90 leading-relaxed font-medium">
                             Melden Sie sich telefonisch oder per E-Mail. Ich
                             rufe Sie zeitnah zurück, um ein erstes kurzes
                             Gespräch zu führen und einen Termin für ein
@@ -51,7 +50,7 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
                         </p>
                     </div>
                     <div
-                        class="relative md:absolute md:left-1/2 md:-translate-x-1/2 w-12 h-12 md:w-10 md:h-10 bg-white border-2 border-primary rounded-full flex items-center justify-center text-primary font-serif font-bold z-10 order-1 md:order-2 shadow-sm group-hover:scale-110 transition-transform"
+                        class="relative md:absolute md:left-1/2 md:-translate-x-1/2 w-16 h-16 bg-accent text-white border-4 border-white rounded-full flex items-center justify-center font-serif font-bold text-2xl z-10 order-1 md:order-2 shadow-lg group-hover:scale-110 transition-transform"
                     >
                         1
                     </div>
@@ -65,17 +64,17 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
                 >
                     <div class="md:w-5/12 order-3 md:order-1"></div>
                     <div
-                        class="relative md:absolute md:left-1/2 md:-translate-x-1/2 w-12 h-12 md:w-10 md:h-10 bg-white border-2 border-primary rounded-full flex items-center justify-center text-primary font-serif font-bold z-10 order-1 md:order-2 shadow-sm group-hover:scale-110 transition-transform"
+                        class="relative md:absolute md:left-1/2 md:-translate-x-1/2 w-16 h-16 bg-primary text-white border-4 border-white rounded-full flex items-center justify-center font-serif font-bold text-2xl z-10 order-1 md:order-2 shadow-lg group-hover:scale-110 transition-transform"
                     >
                         2
                     </div>
                     <div
-                        class="md:w-5/12 text-center md:text-left order-2 md:order-3 mt-4 md:mt-0"
+                        class="md:w-5/12 text-center md:text-left order-2 md:order-3 mt-6 md:mt-0 p-8 rounded-3xl bg-primary/5 hover:bg-primary/10 transition-colors border border-primary/10"
                     >
-                        <h4 class="font-serif text-2xl text-text mb-3">
+                        <h4 class="font-serif text-2xl text-primary mb-3">
                             2. Probatorik
                         </h4>
-                        <p class="text-text/90 leading-relaxed">
+                        <p class="text-text/90 leading-relaxed font-medium">
                             In 4-5 "Schnupperstunden" lernen wir uns kennen. Wir
                             klären Ihr Anliegen, stellen eine Diagnose und
                             prüfen, ob die "Chemie" stimmt – die wichtigste
@@ -90,12 +89,12 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
                     data-aos="fade-up"
                 >
                     <div
-                        class="md:w-5/12 text-center md:text-right order-2 md:order-1 mt-4 md:mt-0"
+                        class="md:w-5/12 text-center md:text-right order-2 md:order-1 mt-6 md:mt-0 p-8 rounded-3xl bg-secondary/10 hover:bg-secondary/20 transition-colors border border-secondary/20"
                     >
                         <h4 class="font-serif text-2xl text-text mb-3">
                             3. Therapiebeginn
                         </h4>
-                        <p class="text-text/90 leading-relaxed">
+                        <p class="text-text/90 leading-relaxed font-medium">
                             Wir entscheiden gemeinsam über das weitere Vorgehen,
                             stellen ggf. Anträge bei der Kasse und legen
                             Frequenz und Dauer der Sitzungen fest (meist 50 Min.
@@ -103,34 +102,12 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
                         </p>
                     </div>
                     <div
-                        class="relative md:absolute md:left-1/2 md:-translate-x-1/2 w-12 h-12 md:w-10 md:h-10 bg-primary text-white rounded-full flex items-center justify-center font-serif font-bold z-10 order-1 md:order-2 shadow-lg group-hover:scale-110 transition-transform"
+                        class="relative md:absolute md:left-1/2 md:-translate-x-1/2 w-16 h-16 bg-text text-white border-4 border-white rounded-full flex items-center justify-center font-serif font-bold text-2xl z-10 order-1 md:order-2 shadow-lg group-hover:scale-110 transition-transform"
                     >
                         3
                     </div>
                     <div class="md:w-5/12 order-3 md:order-3"></div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Visual Break -->
-        <div
-            class="relative h-96 rounded-[3rem] overflow-hidden mb-24 group"
-            data-aos="fade-up"
-        >
-            <Image
-                src={breakImage}
-                alt="Meer Sonnenuntergang"
-                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            />
-            <div class="absolute inset-0 bg-black/20"></div>
-            <div
-                class="absolute inset-0 flex items-center justify-center p-8 text-center"
-            >
-                <p
-                    class="font-serif text-3xl md:text-4xl text-white italic drop-shadow-lg max-w-3xl leading-relaxed"
-                >
-                    "Es sind die kleinen Schritte, die uns ans Ziel bringen."
-                </p>
             </div>
         </div>
 
@@ -142,26 +119,26 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
                 Kosten & Abrechnung
             </h2>
 
-            <div class="max-w-4xl mx-auto" x-data="{ activeTab: 'privat' }">
+            <div class="max-w-4xl mx-auto" x-data="{ activeTab: null }">
                 <!-- Tabs -->
                 <div class="flex flex-wrap justify-center gap-4 mb-12">
                     <button
-                        @click="activeTab = 'privat'"
-                        :class="{ 'bg-primary text-white border-primary shadow-lg': activeTab === 'privat', 'bg-transparent text-text border-secondary/50 hover:border-primary hover:text-primary': activeTab !== 'privat' }"
+                        @click="activeTab === 'privat' ? activeTab = null : activeTab = 'privat'"
+                        :class="{ 'bg-primary text-white border-primary shadow-lg scale-105': activeTab === 'privat', 'bg-white text-text border-secondary/20 shadow-sm hover:border-primary hover:text-primary hover:shadow-md': activeTab !== 'privat' }"
                         class="px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 border-2 focus:outline-none"
                     >
                         Privat & Beihilfe
                     </button>
                     <button
-                        @click="activeTab = 'selbstzahler'"
-                        :class="{ 'bg-primary text-white border-primary shadow-lg': activeTab === 'selbstzahler', 'bg-transparent text-text border-secondary/50 hover:border-primary hover:text-primary': activeTab !== 'selbstzahler' }"
+                        @click="activeTab === 'selbstzahler' ? activeTab = null : activeTab = 'selbstzahler'"
+                        :class="{ 'bg-primary text-white border-primary shadow-lg scale-105': activeTab === 'selbstzahler', 'bg-white text-text border-secondary/20 shadow-sm hover:border-primary hover:text-primary hover:shadow-md': activeTab !== 'selbstzahler' }"
                         class="px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 border-2 focus:outline-none"
                     >
                         Selbstzahler
                     </button>
                     <button
-                        @click="activeTab = 'coaching'"
-                        :class="{ 'bg-primary text-white border-primary shadow-lg': activeTab === 'coaching', 'bg-transparent text-text border-secondary/50 hover:border-primary hover:text-primary': activeTab !== 'coaching' }"
+                        @click="activeTab === 'coaching' ? activeTab = null : activeTab = 'coaching'"
+                        :class="{ 'bg-primary text-white border-primary shadow-lg scale-105': activeTab === 'coaching', 'bg-white text-text border-secondary/20 shadow-sm hover:border-primary hover:text-primary hover:shadow-md': activeTab !== 'coaching' }"
                         class="px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 border-2 focus:outline-none"
                     >
                         Coaching & Beratung
@@ -170,13 +147,16 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
 
                 <!-- Content Container -->
                 <div
-                    class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-secondary/10 min-h-[400px]"
+                    class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-secondary/10 transition-all duration-500 overflow-hidden"
+                    :class="activeTab ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 p-0 border-0'"
                 >
                     <!-- Content: Privat -->
                     <div
                         x-show="activeTab === 'privat'"
                         x-transition.opacity.duration.300ms
                     >
+                        <!-- ... (Existing Content, unchanged logically, just inside the conditional block) ... -->
+                        <!-- I will preserve the inner content exactly as is to be safe, just wrapping it correctly -->
                         <h3
                             class="font-serif text-2xl text-text mb-6 flex items-center gap-3"
                         >
@@ -328,6 +308,7 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
                         x-transition.opacity.duration.300ms
                         style="display: none;"
                     >
+                        <!-- ... (Existing Content, unchanged) ... -->
                         <h3
                             class="font-serif text-2xl text-text mb-6 flex items-center gap-3"
                         >
@@ -403,6 +384,7 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
                         x-transition.opacity.duration.300ms
                         style="display: none;"
                     >
+                        <!-- ... (Existing Content, unchanged) ... -->
                         <h3
                             class="font-serif text-2xl text-text mb-6 flex items-center gap-3"
                         >
@@ -453,7 +435,8 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
             </h3>
 
             <div class="space-y-4" x-data="{ selected: null }">
-                <!-- FAQ Item 1 -->
+                <!-- FAQ Items (Unchanged conceptually, just ensuring they fit) -->
+                <!-- 1 -->
                 <div
                     class="bg-white border border-secondary/20 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
                 >
@@ -496,7 +479,7 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
                     </div>
                 </div>
 
-                <!-- FAQ Item 2 -->
+                <!-- 2 -->
                 <div
                     class="bg-white border border-secondary/20 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
                 >
@@ -538,7 +521,7 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
                     </div>
                 </div>
 
-                <!-- FAQ Item 3 -->
+                <!-- 3 -->
                 <div
                     class="bg-white border border-secondary/20 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
                 >
@@ -580,7 +563,7 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
                     </div>
                 </div>
 
-                <!-- FAQ Item 4 -->
+                <!-- 4 -->
                 <div
                     class="bg-white border border-secondary/20 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
                 >
@@ -618,8 +601,8 @@ import breakImage from "../assets/meer-sonnenuntergang.jpg";
                         Für eine Kostenübernahme durch die Krankenkasse ist eine
                         Diagnose nach ICD-10 erforderlich. Wenn Sie als <strong
                             >Selbstzahler</strong
-                        > kommen oder ein <strong>Coaching</strong> buchen, wird
-                        keine Diagnose an die Kasse übermittelt.
+                        > kommen oder ein <strong>Coaching</strong> buchen, wird keine
+                        Diagnose an die Kasse übermittelt.
                     </div>
                 </div>
             </div>

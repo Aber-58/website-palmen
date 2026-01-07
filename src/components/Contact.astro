@@ -2,228 +2,202 @@
 
 ---
 
-<section id="kontakt" class="py-24 bg-background relative overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="flex flex-col lg:flex-row gap-16 lg:gap-24">
-            <!-- Left Side: Info -->
-            <div class="w-full lg:w-5/12" data-aos="fade-right">
-                <span class="text-primary font-serif italic text-xl mb-4 block"
-                    >Kontakt</span
+<section
+    id="kontakt"
+    class="py-24 bg-gradient-to-b from-white to-accent/10 relative overflow-hidden"
+>
+    <!-- Background Elements -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div
+            class="absolute -right-[10%] top-[20%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl opacity-60"
+        >
+        </div>
+        <div
+            class="absolute -left-[10%] bottom-[10%] w-[400px] h-[400px] bg-secondary/10 rounded-full blur-3xl opacity-60"
+        >
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10 max-w-6xl">
+        <div data-aos="fade-up" class="text-center mb-20">
+            <span
+                class="text-primary font-bold tracking-widest uppercase text-xs mb-3 block"
+                >Kontakt</span
+            >
+            <h2 class="font-serif text-4xl md:text-5xl text-text mb-6">
+                Ich bin für Sie da.
+            </h2>
+            <div class="w-16 h-1 bg-secondary/30 mx-auto rounded-full mb-8">
+            </div>
+            <p
+                class="text-text/70 text-lg max-w-2xl mx-auto leading-relaxed font-light"
+            >
+                Der erste Schritt ist oft der schwerste. Melden Sie sich gerne
+                unverbindlich bei mir.
+                <br class="hidden md:block" />
+                Ich versuche, Ihnen zeitnah einen Termin für ein Erstgespräch anzubieten.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Praxis Card -->
+            <div
+                class="group relative bg-white rounded-3xl p-8 border border-stone-100 shadow-lg shadow-stone-200/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                data-aos="fade-up"
+                data-aos-delay="100"
+            >
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                 >
-                <h2 class="font-serif text-4xl md:text-5xl text-text mb-8">
-                    Ich bin für Sie da.
-                </h2>
-                <div class="prose prose-lg text-text/90 leading-relaxed mb-12">
-                    <p>
-                        Der erste Schritt ist oft der schwerste. Melden Sie sich
-                        gerne unverbindlich bei mir. Ich versuche, Ihnen zeitnah
-                        einen Termin für ein Erstgespräch anzubieten.
-                    </p>
                 </div>
 
-                <div class="space-y-8">
-                    <div class="flex items-start gap-6 group">
-                        <div
-                            class="w-12 h-12 rounded-full bg-white border border-secondary/30 flex items-center justify-center text-primary shrink-0 group-hover:scale-110 transition-transform shadow-sm"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                                ></path>
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="font-serif text-xl text-text mb-1">
-                                Praxis
-                            </h4>
-                            <p class="text-text/70 font-light">
-                                Schillerstraße 11<br />79183 Waldkirch
-                            </p>
-                            <a
-                                href="https://maps.google.com/?q=Schillerstraße+11,+79183+Waldkirch"
-                                target="_blank"
-                                class="text-primary text-sm mt-2 inline-block hover:underline"
-                                >Auf Google Maps anzeigen &rarr;</a
-                            >
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-6 group">
-                        <div
-                            class="w-12 h-12 rounded-full bg-white border border-secondary/30 flex items-center justify-center text-primary shrink-0 group-hover:scale-110 transition-transform shadow-sm"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                ></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="font-serif text-xl text-text mb-1">
-                                Telefon
-                            </h4>
-                            <p class="text-text/70 font-light mb-1">
-                                0163 4252042
-                            </p>
-                            <p class="text-sm text-text/50">
-                                Bitte hinterlassen Sie eine Nachricht, ich rufe
-                                zurück.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-6 group">
-                        <div
-                            class="w-12 h-12 rounded-full bg-white border border-secondary/30 flex items-center justify-center text-primary shrink-0 group-hover:scale-110 transition-transform shadow-sm"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                ></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="font-serif text-xl text-text mb-1">
-                                E-Mail
-                            </h4>
-                            <a
-                                href="mailto:kontakt@palmen-psychotherapie.de"
-                                class="text-text/70 font-light hover:text-primary transition-colors"
-                                >kontakt@palmen-psychotherapie.de</a
-                            >
-                        </div>
-                    </div>
+                <div
+                    class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-8 w-8"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                        ></path>
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
                 </div>
+
+                <h4 class="font-serif text-2xl text-text mb-4">Praxis</h4>
+                <div class="space-y-1 text-text/70 mb-8 font-light">
+                    <p>Schillerstraße 11</p>
+                    <p>79183 Waldkirch</p>
+                </div>
+
+                <a
+                    href="https://maps.google.com/?q=Schillerstraße+11,+79183+Waldkirch"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all relative group/link"
+                >
+                    <span>Auf Karte anzeigen</span>
+                    <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
             </div>
 
-            <!-- Right Side: Form -->
-            <div class="w-full lg:w-7/12" data-aos="fade-left">
-                <form
-                    name="contact"
-                    method="POST"
-                    data-netlify="true"
-                    netlify-honeypot="bot-field"
-                    class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-secondary/20 space-y-8"
+            <!-- Telefon Card -->
+            <div
+                class="group relative bg-white rounded-3xl p-8 border border-stone-100 shadow-lg shadow-stone-200/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                data-aos="fade-up"
+                data-aos-delay="200"
+            >
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                 >
-                    <p class="hidden">
-                        <label>
-                            Don’t fill this out if you’re human: <input
-                                name="bot-field"
-                            />
-                        </label>
-                    </p>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="space-y-2 group">
-                            <label
-                                for="name"
-                                class="text-sm font-bold text-text/80 uppercase tracking-wider group-focus-within:text-primary transition-colors"
-                                >Name</label
-                            >
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                class="w-full px-0 py-3 bg-transparent border-b border-secondary/50 focus:border-primary outline-none transition-all placeholder:text-transparent text-text font-medium"
-                                placeholder="Ihr Name"
-                                required
-                            />
-                        </div>
-                        <div class="space-y-2 group">
-                            <label
-                                for="phone"
-                                class="text-sm font-bold text-text/80 uppercase tracking-wider group-focus-within:text-primary transition-colors"
-                                >Telefon</label
-                            >
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                class="w-full px-0 py-3 bg-transparent border-b border-secondary/50 focus:border-primary outline-none transition-all placeholder:text-transparent text-text font-medium"
-                                placeholder="Ihre Nummer"
-                            />
-                        </div>
-                    </div>
+                </div>
 
-                    <div class="space-y-2 group">
-                        <label
-                            for="email"
-                            class="text-sm font-bold text-text/80 uppercase tracking-wider group-focus-within:text-primary transition-colors"
-                            >E-Mail</label
-                        >
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            class="w-full px-0 py-3 bg-transparent border-b border-secondary/50 focus:border-primary outline-none transition-all placeholder:text-transparent text-text font-medium"
-                            placeholder="ihre@email.de"
-                            required
-                        />
-                    </div>
-
-                    <div class="space-y-2 group">
-                        <label
-                            for="message"
-                            class="text-sm font-bold text-text/80 uppercase tracking-wider group-focus-within:text-primary transition-colors"
-                            >Nachricht</label
-                        >
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="4"
-                            class="w-full px-0 py-3 bg-transparent border-b border-secondary/50 focus:border-primary outline-none transition-all placeholder:text-transparent resize-none text-text font-medium"
-                            placeholder="Wie kann ich Ihnen helfen?"
-                            required></textarea>
-                    </div>
-
-                    <div class="pt-4">
-                        <button
-                            type="submit"
-                            class="w-full border-2 border-primary text-primary font-bold py-4 px-6 rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 tracking-wide uppercase"
-                        >
-                            Nachricht senden
-                        </button>
-                    </div>
-
-                    <p
-                        class="text-xs text-center text-text/60 mt-4 font-medium"
+                <div
+                    class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary-dark mb-6 group-hover:bg-secondary group-hover:text-white transition-colors duration-300"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-8 w-8"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
                     >
-                        Ihre Daten werden vertraulich behandelt.<br />
-                        Bitte senden Sie keine vertraulichen Gesundheitsdaten über
-                        dieses Formular, sondern nutzen Sie es nur zur ersten Kontaktaufnahme.
-                    </p>
-                </form>
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                        ></path>
+                    </svg>
+                </div>
+
+                <h4 class="font-serif text-2xl text-text mb-4">Telefon</h4>
+                <p class="text-xl text-text/80 font-medium mb-3">
+                    0163 4252042
+                </p>
+                <p class="text-sm text-text/50 leading-relaxed max-w-[200px]">
+                    Hinterlassen Sie gerne eine Nachricht, ich rufe verlässlich
+                    zurück.
+                </p>
+            </div>
+
+            <!-- E-Mail Card -->
+            <div
+                class="group relative bg-white rounded-3xl p-8 border border-stone-100 shadow-lg shadow-stone-200/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                data-aos="fade-up"
+                data-aos-delay="300"
+            >
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                </div>
+
+                <div
+                    class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-8 w-8"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        ></path>
+                    </svg>
+                </div>
+
+                <h4 class="font-serif text-2xl text-text mb-4">E-Mail</h4>
+                <a
+                    href="mailto:kontakt@palmen-psychotherapie.de"
+                    class="text-text/70 hover:text-primary transition-colors text-lg block mb-6 break-words"
+                >
+                    kontakt@<br />palmen-psychotherapie.de
+                </a>
+
+                <a
+                    href="mailto:kontakt@palmen-psychotherapie.de"
+                    class="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all"
+                >
+                    <span>E-Mail schreiben</span>
+                    <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
