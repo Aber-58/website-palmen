@@ -24,7 +24,8 @@ Hier ist eine Übersicht der wichtigsten Dateien und Ordner, damit sich neue Ent
 ### `src/pages/`
 - **`index.astro`**: Die Startseite. Importiert und platziert `Hero` und `Intro` untereinander.
 - **`ueber-mich.astro`**: Eigene Seite mit `About.astro`.
-- **`angebot.astro`**: Eigene Seite mit `Services.astro`.
+- **`angebot.astro`**: Eigene Seite mit `Psychotherapie.astro` — die Hauptseite des Angebots.
+- **`angebot/methoden.astro`**: Unterseite mit `Methoden.astro`. Bewusst nachgeordnet: erreichbar über das Dropdown im Kopf und einen Teaser am Ende von `/angebot`, aber ohne gleichrangigen Umschalter. Für Seminare ist eine eigene Webseite geplant.
 - **`ablauf-kosten.astro`**: Eigene Seite mit `ProcessAndCosts.astro`.
 - **`kontakt.astro`**: Eigene Seite mit `Contact.astro`.
 - **`impressum.astro` & `datenschutz.astro`**: Rechtliche Pflichtseiten.
@@ -42,9 +43,11 @@ Dies sind die Bausteine der Webseite. Jede Datei repräsentiert einen Abschnitt 
   - Enthält den Text über die therapeutische Haltung.
   - Beinhaltet die Zeitleiste ("Mein Weg").
 
-- **`Services.astro`**: Der Bereich "Therapieangebot & Schwerpunkte".
-  - Listet die Schwerpunkte (Angst, Depression, etc.) in einem Grid auf.
-  - Zeigt die "Methoden" (Tiefenpsychologie, Körperarbeit) in Accordion- oder Karten-Form.
+- **`Psychotherapie.astro`**: Arbeitsweise und Arbeitsschwerpunkte.
+  - **Die sechs Schwerpunkte stehen als Liste `schwerpunkte` im Kopf der Datei.** Text, Farbe, Reihenfolge und Anzahl ändern sich dort an einer einzigen Stelle; das Markup wird daraus erzeugt. Vorher war jede Karte einzeln ausgeschrieben (~230 Zeilen Dublette).
+  - Farben kommen aus den `thema-*`-Token in `tailwind.config.mjs`.
+
+- **`Methoden.astro`**: Körper, Atem und kreativer Ausdruck als Ergänzung zur Therapie.
 
 - **`ProcessAndCosts.astro`**: Der Bereich "Ablauf & Kosten".
   - **Ablauf-Timeline:** Visuelle Darstellung der 3 Schritte (Kontakt -> Probatorik -> Beginn).
@@ -57,13 +60,39 @@ Dies sind die Bausteine der Webseite. Jede Datei repräsentiert einen Abschnitt 
 
 - **`ScrollToTop.astro`**: Der kleine Pfeil-Button, der erscheint, wenn man nach unten scrollt.
 
-- **`PasswordGate.astro`**: Sperrt aktuell die komplette Seite hinter einem clientseitigen Passwort (in `Layout.astro` eingebunden). **Kein echter Zugriffsschutz** (Passwort liegt im Klartext im Quellcode) — nur als Preview-Sperre vor dem eigentlichen Livegang gedacht. Vor dem echten Launch entfernen oder durch einen serverseitigen Schutz ersetzen.
-
 ### `public/`
-- **`assets/`**: Enthält statische Bilder (Logo, Portrait für OG-Tags), die unter fester URL erreichbar sein müssen (z.B. für Social-Media-Previews). Bildquellen/Lizenzen sind aktuell nicht dokumentiert — vor Livegang klären und hier ergänzen.
+- **`assets/`**: Statische Bilder, die unter fester URL erreichbar sein müssen — OG-Vorschaubild und Logo. **Nicht** für Inhaltsbilder verwenden, hier findet keine Optimierung statt.
+- **`favicon.ico`**: Enthält 16/32/48/64 px, jede Größe mit eigener Strichstärke gerendert. Ein einfaches Verkleinern des 640-px-Logos ergibt unter 32 px einen grauen Fleck, weil die Strichzeichnung nur rund 10 % der Fläche bedeckt.
+
+---
+
+## 🖼 Bilder einbinden
+
+**Immer nach `src/assets/` legen und mit `<Image />` aus `astro:assets` einbinden.** Astro erzeugt daraus automatisch WebP, liefert passende Größen je Bildschirm aus und lädt verzögert. Vorbilder: `Hero.astro` und `About.astro`.
+
+```astro
+---
+import { Image } from "astro:assets";
+import praxisraum from "../assets/praxisraum.jpg";
+---
+<Image src={praxisraum} alt="Therapieraum der Praxis mit Sesseln am Fenster" class="w-full h-auto rounded-3xl" />
+```
+
+**Was gebraucht wird, nach Wirkung sortiert:**
+
+| Platz | Motiv | Format |
+|---|---|---|
+| `/kontakt` | Therapieraum — stärkstes Vertrauenssignal | quer, ab 2000 px breit |
+| `/angebot` | Praxis oder Detailaufnahme | quer, ab 2000 px breit |
+| `/ueber-mich` | zweites Porträt, Arbeitssituation statt Passfoto | hoch, ca. 1200 × 1500 px |
+| `/ablauf-kosten` | Waldkirch oder Natur als Trenner | quer, ab 2000 px breit |
+
+**Regeln:** JPEG direkt aus der Kamera, nicht vorher verkleinern — das macht Astro. Keine Personen außer Kathrin selbst; nichts, was Klientinnen oder Klienten identifizierbar macht. Zu jedem Bild gehört ein `alt`-Text, der beschreibt, was zu sehen ist.
+
+**Offen:** Bildquellen und Lizenzen sind bisher nirgends dokumentiert. Beim Einbauen hier ergänzen.
 
 ### `src/assets/`
-- Enthält die von Astros `<Image />`-Komponente optimierten Bilder (Hero-Hintergrund, Portrait) sowie das Kammer-Infoblatt `Infos_Privatpraxis_Therapeutenkammer.pdf` (aktuell nicht auf der Seite verlinkt — klären, ob/wo es veröffentlicht werden soll).
+- Enthält die von `<Image />` optimierten Bilder (Hero-Hintergrund, Porträt) sowie das Kammer-Infoblatt `Infos_Privatpraxis_Therapeutenkammer.pdf` (aktuell nicht auf der Seite verlinkt — klären, ob und wo es veröffentlicht werden soll).
 
 ---
 

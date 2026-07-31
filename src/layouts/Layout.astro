@@ -97,12 +97,12 @@ const practiceSchema = {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
-		<!-- SEO Meta Tags -->
+		<!-- Angaben für Suchmaschinen -->
 		<link rel="canonical" href={canonical} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		{noindex && <meta name="robots" content="noindex, follow" />}
 
-		<!-- Open Graph / Social Media -->
+		<!-- Open Graph: Vorschaubild beim Teilen -->
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="de_DE" />
 		<meta property="og:site_name" content="Privatpraxis Kathrin Palmen" />
@@ -141,26 +141,24 @@ const practiceSchema = {
 			Zum Inhalt springen
 		</a>
 
-		<!-- Background "Blur Orbs" -->
+		<!-- Weiche Farbflächen im Hintergrund -->
 		<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-			<!-- Orbs (High Visibility Mode) -->
-			<!-- Orb 1: Sand/Secondary (Top Left) -->
+			<!-- Fläche 1: Sand, oben links -->
 			<div
 				class="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-secondary/50 rounded-full blur-[100px] animate-float-slow"
 			>
 			</div>
-			<!-- Orb 2: Terracotta/Accent (Top Right) -->
+			<!-- Fläche 2: Terrakotta, oben rechts -->
 			<div
 				class="absolute top-[10%] right-[-10%] w-[50vw] h-[50vw] bg-accent/30 rounded-full blur-[90px] animate-float-delayed"
 			>
 			</div>
-			<!-- Orb 3: Green/Primary (Bottom Left) -->
+			<!-- Fläche 3: Pine, unten links -->
 			<div
 				class="absolute bottom-[-10%] left-[20%] w-[70vw] h-[70vw] bg-primary/30 rounded-full blur-[110px] animate-pulse-slow"
 			>
 			</div>
 		</div>
-		<!-- ... Header code ... -->
 		<header
 			class="fixed w-full top-0 z-50 transition-all duration-500 transform bg-background/95 backdrop-blur-md"
 			x-data="{
@@ -193,7 +191,7 @@ const practiceSchema = {
 			>
 				<a href="/" class="flex items-center gap-3 group">
 					<img
-						src="/assets/logo-96.png"
+						src="/assets/logo-144.png"
 						alt=""
 						width="48"
 						height="48"
@@ -213,7 +211,7 @@ const practiceSchema = {
 					</div>
 				</a>
 
-				<!-- Desktop Menu -->
+				<!-- Menü auf Desktop -->
 				<nav
 					class="hidden md:flex items-center space-x-8 text-lg font-medium"
 				>
@@ -247,14 +245,14 @@ const practiceSchema = {
 							class="absolute top-full left-1/2 -translate-x-1/2 pt-6 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:visible transition-all duration-300 ease-out z-50"
 						>
 							<div
-								class="bg-white/90 backdrop-blur-xl rounded-[1.5rem] shadow-xl border border-white/60 overflow-hidden w-72 p-3 ring-1 ring-black/5 relative"
+								class="bg-white/90 backdrop-blur-xl rounded-2xl shadow-lg border border-white/60 overflow-hidden w-72 p-3 ring-1 ring-black/5 relative"
 							>
 								<div
 									class="absolute inset-0 bg-gradient-to-br from-white via-white/80 to-secondary/10 opacity-50 pointer-events-none"
 								>
 								</div>
 								<a
-									href="/angebot#psychotherapie"
+									href="/angebot"
 									class="relative block px-5 py-4 rounded-2xl text-text/80 hover:text-primary hover:bg-white hover:shadow-sm transition-all duration-300 group/item"
 								>
 									<span
@@ -267,7 +265,7 @@ const practiceSchema = {
 									>
 								</a>
 								<a
-									href="/angebot#methoden"
+									href="/angebot/methoden"
 									class="relative block px-5 py-4 rounded-2xl text-text/80 hover:text-primary hover:bg-white hover:shadow-sm transition-all duration-300 group/item mt-1"
 								>
 									<span
@@ -293,18 +291,18 @@ const practiceSchema = {
 						>Über mich</a
 					>
 
-					<!-- CTA Button Style for Contact -->
+					<!-- Kontakt als hervorgehobener Knopf -->
 					<a
 						href="/kontakt"
-						class={`px-6 py-2 rounded-full border-2 border-primary bg-primary text-white transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md hover:bg-primary/90 hover:border-primary/90`}
+						class={`px-6 py-2 rounded-full border-2 border-primary bg-primary text-white transition-all duration-300 shadow-sm hover:shadow-md hover:bg-primary/90 hover:border-primary/90`}
 						>Kontakt</a
 					>
 				</nav>
 
-				<!-- Mobile Menu Button -->
+				<!-- Knopf für das Mobilmenü -->
 				<button
 					@click="mobileMenuOpen = !mobileMenuOpen"
-					class="md:hidden p-2 rounded-md hover:bg-secondary/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+					class="md:hidden p-2 rounded-2xl hover:bg-secondary/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
 					:aria-label="mobileMenuOpen ? 'Menü schließen' : 'Menü öffnen'"
 					aria-label="Menü öffnen"
 					:aria-expanded="mobileMenuOpen"
@@ -326,7 +324,7 @@ const practiceSchema = {
 				</button>
 			</div>
 
-			<!-- Mobile Menu (Fade & Slide) -->
+			<!-- Mobilmenü -->
 			<div
 				id="mobile-menu"
 				x-show="mobileMenuOpen"
@@ -374,14 +372,14 @@ const practiceSchema = {
 						class="pl-4 mt-2 space-y-3 border-l-2 border-primary/10 ml-1"
 					>
 						<a
-							href="/angebot#psychotherapie"
+							href="/angebot"
 							@click="mobileMenuOpen = false"
 							class="block text-lg text-text/80 hover:text-primary"
 						>
 							Psychotherapie & Beratung
 						</a>
 						<a
-							href="/angebot#methoden"
+							href="/angebot/methoden"
 							@click="mobileMenuOpen = false"
 							class="block text-lg text-text/80 hover:text-primary"
 						>
@@ -410,26 +408,26 @@ const practiceSchema = {
 			</div>
 		</header>
 
-		<!-- Main Content Slot -->
+		<!-- Hauptinhalt der Seite -->
 		<main id="inhalt" class="relative z-10">
 			<slot />
 		</main>
 
 		<footer class="relative z-10 pt-16 pb-8">
-			<!-- Opaque background to block orbs -->
+			<!-- Deckende Fläche, damit die Farbflächen nicht durchscheinen -->
 			<div class="absolute inset-0 bg-background"></div>
-			<!-- Tint overlay for design -->
+			<!-- Farbschleier -->
 			<div
 				class="absolute inset-0 bg-secondary/10 border-t border-secondary/20"
 			>
 			</div>
 
-			<!-- Footer Content -->
+			<!-- Inhalt der Fußzeile -->
 			<div class="container mx-auto px-6 max-w-7xl relative">
 				<div
 					class="grid md:grid-cols-3 gap-12 mb-12 text-center md:text-left"
 				>
-					<!-- Column 1: Brand -->
+					<!-- Spalte 1: Praxis -->
 					<div class="space-y-4">
 						<h4 class="font-serif text-xl text-primary">
 							Privatpraxis Palmen
@@ -444,7 +442,7 @@ const practiceSchema = {
 						</p>
 					</div>
 
-					<!-- Column 2: Contact -->
+					<!-- Spalte 2: Kontakt -->
 					<div class="space-y-4">
 						<h5
 							class="font-medium text-text uppercase tracking-wider text-xs"
@@ -467,7 +465,7 @@ const practiceSchema = {
 						>
 					</div>
 
-					<!-- Column 3: Emergency -->
+					<!-- Spalte 3: Im Notfall -->
 					<div class="space-y-4">
 						<h5
 							class="font-medium text-text uppercase tracking-wider text-xs"
@@ -513,7 +511,7 @@ const practiceSchema = {
 					</div>
 				</div>
 
-				<!-- Bottom Bar -->
+				<!-- Untere Zeile: Rechtliches -->
 				<div
 					class="border-t border-secondary/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted"
 				>
@@ -536,7 +534,7 @@ const practiceSchema = {
 
 		<ScrollToTop />
 
-		<!-- Alpine & AOS Scripts -->
+		<!-- Alpine und AOS laden -->
 		<script>
 			import Alpine from "alpinejs";
 			import collapse from "@alpinejs/collapse";

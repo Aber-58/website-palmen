@@ -75,32 +75,34 @@ const stationen = [
         <div
             class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-start"
         >
-            <!-- 1. IMAGE (Mobile: 1st, Desktop: Left Col, Row 1) -->
+            <!-- Bild – mobil zuerst, auf Desktop linke Spalte -->
             <div class="md:col-start-1 md:row-start-1" data-aos="fade-right">
                 <div
-                    class="relative max-w-md mx-auto md:mx-0 group perspective-1000"
+                    class="relative max-w-md mx-auto md:mx-0"
                 >
-                    <!-- Background Decor Frame -->
+                    {/* Versetzter Rahmen hinter dem Bild. Bleibt als ruhiges
+                    gestalterisches Element – vorher drehte er sich beim Hover
+                    zurück, während das Bild anhob und den Schatten wechselte. */}
                     <div
-                        class="absolute inset-0 bg-primary/10 rounded-[2.5rem] translate-x-4 translate-y-4 -rotate-2 transition-transform duration-500 group-hover:rotate-0 group-hover:translate-x-2 group-hover:translate-y-2"
+                        class="absolute inset-0 bg-primary/10 rounded-3xl translate-x-4 translate-y-4 -rotate-2"
                     >
                     </div>
 
-                    <!-- Image Container -->
+                    <!-- Bildrahmen -->
                     <div
-                        class="relative rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 transform group-hover:-translate-y-1 group-hover:shadow-3xl"
+                        class="relative rounded-3xl overflow-hidden shadow-md"
                     >
                         <Image
                             src={portraitImage}
-                            alt="Kathrin Palmen"
-                            class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt="Kathrin Palmen, Psychologische Psychotherapeutin"
+                            class="w-full h-auto object-cover"
                         />
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500"
+                            class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80"
                         >
                         </div>
                         <div
-                            class="absolute bottom-8 left-8 text-white pr-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
+                            class="absolute bottom-8 left-8 text-white pr-8"
                         >
                             <span
                                 class="font-serif italic text-2xl md:text-3xl leading-tight block drop-shadow-md"
@@ -112,7 +114,7 @@ const stationen = [
                 </div>
             </div>
 
-            <!-- 2. TEXT (Mobile: 2nd, Desktop: Right Col, Spanning 2 Rows) -->
+            <!-- Text – auf Desktop rechte Spalte über zwei Zeilen -->
             <div
                 class="md:col-start-2 md:row-start-1 md:row-span-2 sticky top-12"
                 data-aos="fade-left"
@@ -124,7 +126,7 @@ const stationen = [
                 </h1>
 
                 <div
-                    class="prose prose-lg text-text/80 leading-relaxed mb-12 space-y-6 font-light"
+                    class="prose prose-lg text-text/80 leading-relaxed mb-12 space-y-6"
                 >
                     <p>
                         Mein Name ist Kathrin Palmen. Ich bin Psychologische
@@ -177,7 +179,7 @@ const stationen = [
                     </p>
                 </div>
 
-                <!-- Signature Only (Quality Section Removed) -->
+                <!-- Unterschrift -->
                 <div class="pl-4">
                     <span
                         class="text-5xl text-primary/80 transform -rotate-2 inline-block opacity-90 drop-shadow-sm"
@@ -187,7 +189,7 @@ const stationen = [
                 </div>
             </div>
 
-            <!-- 3. TIMELINE (Mobile: 3rd, Desktop: Left Col, Row 2) -->
+            <!-- Werdegang – auf Desktop linke Spalte, zweite Zeile -->
             <div
                 class="md:col-start-1 md:row-start-2 mt-12 md:mt-24"
                 data-aos="fade-right"
@@ -199,7 +201,7 @@ const stationen = [
                 </h3>
 
                 <div class="relative ml-3 md:ml-4">
-                    <!-- Continuous Vertical Line -->
+                    <!-- Durchgehende senkrechte Linie -->
                     <div
                         class="absolute left-[7px] top-3 bottom-0 w-px bg-gradient-to-b from-primary/30 via-primary/20 to-transparent"
                     >
@@ -221,7 +223,7 @@ const stationen = [
                                             : "border-secondary group-hover:bg-secondary",
                                     ]}
                                 />
-                                <div class="transition-transform duration-300 group-hover:translate-x-1">
+                                <div>
                                     <span
                                         class:list={[
                                             "font-bold text-xs tracking-widest uppercase mb-1 block",

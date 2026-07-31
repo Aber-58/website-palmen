@@ -7,7 +7,7 @@ import heroImage from "../assets/natur-sonnenuntergang.jpg";
     id="start"
     class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden"
 >
-    <!-- Background Image -->
+    <!-- Hintergrundbild -->
     <div class="absolute inset-0 z-0">
         {/* LCP-Element: bewusst eager + hohe Priorität und mit widths/sizes,
         sonst liefert Astro eine einzige Datei in Originalbreite an jedes Handy. */}
@@ -22,7 +22,7 @@ import heroImage from "../assets/natur-sonnenuntergang.jpg";
             quality="high"
         />
 
-        <!-- 1. Green Tint (Nature Atmosphere) -->
+        <!-- Grünschleier für die Naturstimmung -->
         <div class="absolute inset-0 bg-primary/30 mix-blend-multiply"></div>
 
         <!-- 2. Spotlight/Vignette (Darkens ONLY the center for text, keeps edges bright) -->
@@ -31,14 +31,14 @@ import heroImage from "../assets/natur-sonnenuntergang.jpg";
         >
         </div>
 
-        <!-- 3. Bottom Fade (Smooth transition) -->
+        <!-- Weicher Übergang zum unteren Rand -->
         <div
             class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"
         >
         </div>
     </div>
 
-    <!-- Content -->
+    <!-- Inhalt -->
     <div
         class="relative z-10 container mx-auto px-4 text-center max-w-5xl pt-24 pb-12 md:pt-20"
     >
@@ -94,13 +94,13 @@ import heroImage from "../assets/natur-sonnenuntergang.jpg";
         >
             <a
                 href="/angebot"
-                class="w-full sm:w-auto px-6 py-3 md:px-10 md:py-5 border-2 border-white text-white rounded-full hover:bg-white hover:text-primary transition-all duration-300 text-base md:text-xl tracking-wide uppercase font-semibold shadow-lg hover:shadow-xl hover:-translate-y-1 block drop-shadow-md"
+                class="w-full sm:w-auto px-6 py-3 md:px-10 md:py-5 border-2 border-white text-white rounded-full hover:bg-white hover:text-primary transition-all duration-300 text-base md:text-xl tracking-wide uppercase font-semibold shadow-sm hover:shadow-md block drop-shadow-md"
             >
                 Angebot ansehen
             </a>
             <a
                 href="/kontakt"
-                class="w-full sm:w-auto px-6 py-3 md:px-10 md:py-5 border-2 border-white/50 text-white rounded-full hover:bg-white hover:text-primary hover:border-white transition-all duration-300 text-base md:text-xl tracking-wide uppercase font-semibold shadow-lg hover:shadow-xl hover:-translate-y-1 block drop-shadow-md"
+                class="w-full sm:w-auto px-6 py-3 md:px-10 md:py-5 border-2 border-white/50 text-white rounded-full hover:bg-white hover:text-primary hover:border-white transition-all duration-300 text-base md:text-xl tracking-wide uppercase font-semibold shadow-sm hover:shadow-md block drop-shadow-md"
             >
                 Kontakt aufnehmen
             </a>
