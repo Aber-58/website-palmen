@@ -1,13 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+/*
+ * OFFEN VOR LIVEGANG – Angaben von Kathrin nötig:
+ *
+ * 1. BLOCKIEREND: Berufshaftpflichtversicherung. Nach § 2 Abs. 1 Nr. 11
+ *    DL-InfoV sind Name, Anschrift und räumlicher Geltungsbereich des
+ *    Versicherers anzugeben. Der Absatz fehlt derzeit vollständig.
+ *    Einzufügen nach dem Block "Berufsrechtliche Regelungen".
+ *
+ * 2. Approbationsbehörde: Statt "verliehen in der Bundesrepublik Deutschland"
+ *    die verleihende Stelle nennen, z. B. "Approbation erteilt durch das
+ *    Regierungspräsidium Stuttgart".
+ *
+ * Danach: Impressum und Datenschutzerklärung juristisch gegenlesen lassen
+ * (die LPK Baden-Württemberg stellt Muster für Privatpraxen bereit).
+ */
 ---
 
-<Layout title="Impressum | Privatpraxis Kathrin Palmen">
+<Layout
+	title="Impressum | Privatpraxis Kathrin Palmen"
+	description="Impressum und Anbieterkennzeichnung der Privatpraxis für Psychotherapie Kathrin Palmen in Waldkirch."
+	noindex
+>
     <section class="py-32 bg-background">
         <div class="container mx-auto px-6 max-w-4xl prose prose-lg">
             <h1 class="font-serif text-4xl mb-8">Impressum</h1>
 
-            <p>Angaben gemäß § 5 TMG</p>
+            <p>Angaben gemäß § 5 DDG</p>
 
             <p>
                 <strong>Privatpraxis für Psychotherapie</strong><br />
@@ -18,37 +38,83 @@ import Layout from "../layouts/Layout.astro";
 
             <p>
                 <strong>Kontakt:</strong><br />
-                Telefon: 0163 4252042<br />
-                E-Mail: kontakt@palmen-psychotherapie.de
+                Telefon: <a href="tel:+491634252042">0163 4252042</a><br />
+                E-Mail: <a href="mailto:info@praxis-palmen.de"
+                    >info@praxis-palmen.de</a
+                >
             </p>
 
             <p>
-                <strong>Berufsbezeichnung:</strong><br />
-                Psychologische Psychotherapeutin (verliehen in der Bundesrepublik
-                Deutschland)
+                <strong>Gesetzliche Berufsbezeichnung:</strong><br />
+                Psychologische Psychotherapeutin<br />
+                Verliehen in der Bundesrepublik Deutschland
             </p>
 
             <p>
-                <strong>Zuständige Aufsichtsbehörde:</strong><br />
+                <strong>Zuständige Kammer:</strong><br />
                 Landespsychotherapeutenkammer Baden-Württemberg<br />
                 Jägerstr. 40<br />
-                70174 Stuttgart
+                70174 Stuttgart<br />
+                <a
+                    href="https://www.lpk-bw.de"
+                    target="_blank"
+                    rel="noopener noreferrer">www.lpk-bw.de</a
+                >
             </p>
 
             <p>
                 <strong>Berufsrechtliche Regelungen:</strong><br />
-                Gesetz über die Berufe des Psychologischen Psychotherapeuten und
-                des Kinder- und Jugendlichenpsychotherapeuten (Psychotherapeutengesetz
-                - PsychThG)<br />
-                Berufsordnung der Landespsychotherapeutenkammer Baden-Württemberg
+                Es gelten insbesondere die folgenden berufsrechtlichen Regelungen,
+                die über die jeweils verlinkten Seiten einsehbar sind:
+            </p>
+            <ul>
+                <li>
+                    <a
+                        href="https://www.gesetze-im-internet.de/psychthg_2020/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Psychotherapeutengesetz (PsychThG)</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://www.landesrecht-bw.de/perma?d=jlr-HeilBerKGBW1995rahmen"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Heilberufe-Kammergesetz Baden-Württemberg (HBKG)</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://www.lpk-bw.de/kammer/recht/berufsordnung"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Berufsordnung der Landespsychotherapeutenkammer
+                        Baden-Württemberg</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://www.gesetze-im-internet.de/gop_2/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Gebührenordnung für Psychotherapeuten (GOP)</a
+                    >
+                </li>
+            </ul>
+
+            <p>
+                <strong>Verbraucherstreitbeilegung:</strong><br />
+                Ich bin weder bereit noch verpflichtet, an Streitbeilegungsverfahren
+                vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).
             </p>
 
             <h2 class="font-serif text-2xl mt-8 mb-4">Haftungsausschluss</h2>
             <p>
                 <strong>Haftung für Inhalte</strong><br />
-                Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte
+                Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte
                 auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach
-                §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet,
+                §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet,
                 übermittelte oder gespeicherte fremde Informationen zu überwachen
                 oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit
                 hinweisen.

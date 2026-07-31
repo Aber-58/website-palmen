@@ -1,8 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProcessAndCosts from "../components/ProcessAndCosts.astro";
+
+/**
+ * FAQ-Markup für Google. Die Fragen und Antworten müssen wortgleich zu denen
+ * in ProcessAndCosts.astro bleiben – Google wertet abweichende Rich-Snippets
+ * als Verstoß gegen die Richtlinien.
+ */
+const faq = [
+	{
+		frage: "Wie lange dauert eine Sitzung?",
+		antwort:
+			"Eine Therapiesitzung dauert in der Regel 50 Minuten. Diese Zeit ist exklusiv für Sie reserviert. Doppelsitzungen oder kürzere Frequenzen sind nach Absprache möglich.",
+	},
+	{
+		frage: "Kann ich auch online Termine wahrnehmen?",
+		antwort:
+			"Ja, ich biete auch Videosprechstunden an. Dies ist besonders praktisch, wenn Sie beruflich viel unterwegs sind oder nicht in die Praxis kommen können. Die Abrechnung erfolgt analog zu Präsenzsitzungen.",
+	},
+	{
+		frage: "Wie schnell bekomme ich einen Termin?",
+		antwort:
+			"Ich bemühe mich, Erstgespräche zeitnah anzubieten, oft innerhalb von 1-2 Wochen. Für einen regulären Therapieplatz können Wartezeiten entstehen, über die ich Sie im Erstgespräch transparent informiere.",
+	},
+	{
+		frage: "Muss ich eine Diagnose haben?",
+		antwort:
+			"Für eine Kostenübernahme durch Ihre private Krankenversicherung oder Beihilfe ist eine Diagnose nach ICD-10 erforderlich. Wenn Sie selbst zahlen oder ein Coaching buchen, wird keine Diagnose an eine Versicherung übermittelt.",
+	},
+];
+
+const faqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	mainEntity: faq.map((f) => ({
+		"@type": "Question",
+		name: f.frage,
+		acceptedAnswer: { "@type": "Answer", text: f.antwort },
+	})),
+};
 ---
 
-<Layout title="Ablauf & Kosten | Privatpraxis Kathrin Palmen">
-    <ProcessAndCosts />
+<Layout
+	title="Ablauf & Kosten | Privatpraxis Kathrin Palmen, Waldkirch"
+	description="So läuft eine Therapie ab und so wird abgerechnet: Privatversicherung, Beihilfe oder Selbstzahlung (100 € pro Sitzung). Keine Abrechnung über gesetzliche Krankenkassen."
+>
+	<script
+		slot="head"
+		type="application/ld+json"
+		set:html={JSON.stringify(faqSchema)}
+	/>
+	<ProcessAndCosts />
 </Layout>

@@ -1,6 +1,70 @@
 ---
 import { Image } from "astro:assets";
 import portraitImage from "../assets/portrait-profil.jpg";
+
+/**
+ * Werdegang, streng absteigend nach Startjahr.
+ *
+ * Vorher war die Reihenfolge gemischt und ein Eintrag in sich widersprüchlich:
+ * unter der Überschrift "2016 – 2017" stand "Reha-Zentrum St. Blasien (2019-2020)".
+ * Aufgelöst anhand der Jahreszahlen, die im Eintrag selbst standen – die beiden
+ * Klinikstationen sind jetzt getrennt.
+ *
+ * TODO (Kathrin): Zeiträume einmal gegenlesen, insbesondere St. Blasien und
+ * die Überschneidung von Approbationsausbildung und Lehrpraxis-Tätigkeit.
+ */
+const stationen = [
+	{
+		zeitraum: "Seit 2025",
+		titel: "Privatpraxis für Psychotherapie",
+		ort: "Waldkirch",
+		aktuell: true,
+	},
+	{
+		zeitraum: "2024 – 2025",
+		titel: "Praktikum bei Ai Pono Hawaii",
+		ort: "Dr. Anita Johnston: Ganzheitliche Arbeit mit Essstörungen",
+	},
+	{
+		zeitraum: "2024 – 2025",
+		titel: "Systemische Weiterbildungen",
+		punkte: [
+			"Systemisch-schamanische Ahnenarbeit",
+			"Systemisches Familienstellen",
+		],
+	},
+	{
+		zeitraum: "2019 – 2020",
+		titel: "Klinische Tätigkeit",
+		ort: "Reha-Zentrum St. Blasien",
+	},
+	{
+		zeitraum: "2018 – 2023",
+		titel: "Approbationsausbildung",
+		rolle: "Psychologische Psychotherapeutin (TP)",
+		ort: "ZIST Akademie für Psychotherapie, Penzberg",
+	},
+	{
+		zeitraum: "2017 – 2023",
+		titel: "Psychotherapeutische Tätigkeit",
+		ort: "Ambulante Tätigkeit in Lehrpraxen, Freiburg",
+	},
+	{
+		zeitraum: "2016",
+		titel: "Klinische Tätigkeit",
+		ort: "ZfP Emmendingen",
+	},
+	{
+		zeitraum: "2012 – 2015",
+		titel: "M. Sc. Psychologie",
+		ort: "Universität des Saarlandes",
+	},
+	{
+		zeitraum: "Seit 2012",
+		titel: "Kontinuierliche Fortbildung",
+		ort: "Achtsamkeit, Meditation & Körperarbeit",
+	},
+];
 ---
 
 <section
@@ -71,7 +135,7 @@ import portraitImage from "../assets/portrait-profil.jpg";
                     </p>
                     <p>
                         Zudem bin ich, genau wie Sie, ein Mensch, der die Höhen
-                        und Tiefen des Lebens kennt. Ich nehme mich durch eine
+                        und Tiefen des Lebens kennt. Ich zeichne mich durch
                         hohe Empathie, Freundlichkeit und Feinfühligkeit aus,
                         gleichzeitig durch Lebendigkeit, Klarheit und meine
                         mitunter direkte rheinländische Art.
@@ -141,208 +205,60 @@ import portraitImage from "../assets/portrait-profil.jpg";
                     >
                     </div>
 
-                    <!-- Item 1 -->
-                    <div class="relative pl-12 pb-12 group">
-                        <!-- Marker -->
-                        <div
-                            class="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-primary bg-white group-hover:bg-primary transition-all duration-300 z-10 shadow-[0_0_0_4px_rgba(255,255,255,1)]"
-                        >
-                        </div>
-
-                        <!-- Content -->
-                        <div
-                            class="transition-transform duration-300 group-hover:translate-x-1"
-                        >
-                            <span
-                                class="text-primary font-bold text-xs tracking-widest uppercase mb-1 block"
-                                >Seit 2025</span
+                    {
+                        stationen.map((s, i) => (
+                            <div
+                                class:list={[
+                                    "relative pl-12 group",
+                                    i < stationen.length - 1 && "pb-12",
+                                ]}
                             >
-                            <h4
-                                class="font-serif text-xl text-text leading-tight mb-2 group-hover:text-primary transition-colors"
-                            >
-                                Privatpraxis für Psychotherapie
-                            </h4>
-                            <p class="text-text/60 italic text-sm">Waldkirch</p>
-                        </div>
-                    </div>
-
-                    <!-- Item 2 -->
-                    <div class="relative pl-12 pb-12 group">
-                        <div
-                            class="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-secondary bg-white group-hover:bg-secondary transition-all duration-300 z-10 shadow-[0_0_0_4px_rgba(255,255,255,1)]"
-                        >
-                        </div>
-                        <div
-                            class="transition-transform duration-300 group-hover:translate-x-1"
-                        >
-                            <span
-                                class="text-text/40 font-bold text-xs tracking-widest uppercase mb-1 block"
-                                >2018 – 2023</span
-                            >
-                            <h4
-                                class="font-serif text-xl text-text leading-tight mb-2 group-hover:text-secondary-dark transition-colors"
-                            >
-                                Approbationsausbildung
-                            </h4>
-                            <p class="text-text/80 text-sm mb-1 font-medium">
-                                Psychologische Psychotherapeutin (TP)
-                            </p>
-                            <p class="text-text/60 text-xs leading-relaxed">
-                                ZIST Akademie für Psychotherapie, Penzberg
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="relative pl-12 pb-12 group">
-                        <div
-                            class="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-secondary bg-white group-hover:bg-secondary transition-all duration-300 z-10 shadow-[0_0_0_4px_rgba(255,255,255,1)]"
-                        >
-                        </div>
-                        <div
-                            class="transition-transform duration-300 group-hover:translate-x-1"
-                        >
-                            <span
-                                class="text-text/40 font-bold text-xs tracking-widest uppercase mb-1 block"
-                                >2024 – 2025</span
-                            >
-                            <h4
-                                class="font-serif text-xl text-text leading-tight mb-2 group-hover:text-secondary-dark transition-colors"
-                            >
-                                Praktikum bei Ai Pono Hawaii
-                            </h4>
-                            <p class="text-text/80 text-sm">
-                                Dr. Anita Johnston: Ganzheitliche Arbeit mit
-                                Essstörungen
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Item 4 -->
-                    <div class="relative pl-12 pb-12 group">
-                        <div
-                            class="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-secondary bg-white group-hover:bg-secondary transition-all duration-300 z-10 shadow-[0_0_0_4px_rgba(255,255,255,1)]"
-                        >
-                        </div>
-                        <div
-                            class="transition-transform duration-300 group-hover:translate-x-1"
-                        >
-                            <span
-                                class="text-text/40 font-bold text-xs tracking-widest uppercase mb-1 block"
-                                >2024 – 2025</span
-                            >
-                            <h4
-                                class="font-serif text-xl text-text leading-tight mb-2 group-hover:text-secondary-dark transition-colors"
-                            >
-                                Systemische Weiterbildungen
-                            </h4>
-                            <ul
-                                class="text-text/70 text-sm list-disc list-inside mt-2 space-y-1"
-                            >
-                                <li>Systemisch-schamanische Ahnenarbeit</li>
-                                <li>Systemisches Familienstellen</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Item 5 -->
-                    <div class="relative pl-12 pb-12 group">
-                        <div
-                            class="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-secondary bg-white group-hover:bg-secondary transition-all duration-300 z-10 shadow-[0_0_0_4px_rgba(255,255,255,1)]"
-                        >
-                        </div>
-                        <div
-                            class="transition-transform duration-300 group-hover:translate-x-1"
-                        >
-                            <span
-                                class="text-text/40 font-bold text-xs tracking-widest uppercase mb-1 block"
-                                >2017 – 2023</span
-                            >
-                            <h4
-                                class="font-serif text-xl text-text leading-tight mb-2 group-hover:text-secondary-dark transition-colors"
-                            >
-                                Psychotherapeutische Tätigkeit
-                            </h4>
-                            <p class="text-text/80 text-sm">
-                                Ambulante Tätigkeit in Lehrpraxen, Freiburg
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Item 6 -->
-                    <div class="relative pl-12 pb-12 group">
-                        <div
-                            class="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-secondary bg-white group-hover:bg-secondary transition-all duration-300 z-10 shadow-[0_0_0_4px_rgba(255,255,255,1)]"
-                        >
-                        </div>
-                        <div
-                            class="transition-transform duration-300 group-hover:translate-x-1"
-                        >
-                            <span
-                                class="text-text/40 font-bold text-xs tracking-widest uppercase mb-1 block"
-                                >2016 – 2017</span
-                            >
-                            <h4
-                                class="font-serif text-xl text-text leading-tight mb-2 group-hover:text-secondary-dark transition-colors"
-                            >
-                                Klinische Tätigkeit
-                            </h4>
-                            <ul
-                                class="text-text/70 text-sm list-disc list-inside mt-2 space-y-1"
-                            >
-                                <li>Reha-Zentrum St. Blasien (2019-2020)</li>
-                                <li>ZfP Emmendingen (2016)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Item 7 -->
-                    <div class="relative pl-12 pb-12 group">
-                        <div
-                            class="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-secondary bg-white group-hover:bg-secondary transition-all duration-300 z-10 shadow-[0_0_0_4px_rgba(255,255,255,1)]"
-                        >
-                        </div>
-                        <div
-                            class="transition-transform duration-300 group-hover:translate-x-1"
-                        >
-                            <span
-                                class="text-text/40 font-bold text-xs tracking-widest uppercase mb-1 block"
-                                >2012 – 2015</span
-                            >
-                            <h4
-                                class="font-serif text-xl text-text leading-tight mb-2 group-hover:text-secondary-dark transition-colors"
-                            >
-                                M. Sc. Psychologie
-                            </h4>
-                            <p class="text-text/80 text-sm">
-                                Universität des Saarlandes
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Item 8 -->
-                    <div class="relative pl-12 group">
-                        <div
-                            class="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-secondary bg-white group-hover:bg-secondary transition-all duration-300 z-10 shadow-[0_0_0_4px_rgba(255,255,255,1)]"
-                        >
-                        </div>
-                        <div
-                            class="transition-transform duration-300 group-hover:translate-x-1"
-                        >
-                            <span
-                                class="text-text/40 font-bold text-xs tracking-widest uppercase mb-1 block"
-                                >Seit 2012</span
-                            >
-                            <h4
-                                class="font-serif text-xl text-text leading-tight mb-2 group-hover:text-secondary-dark transition-colors"
-                            >
-                                Kontinuierliche Fortbildung
-                            </h4>
-                            <p class="text-text/80 text-sm">
-                                Achtsamkeit, Meditation & Körperarbeit
-                            </p>
-                        </div>
-                    </div>
+                                <div
+                                    class:list={[
+                                        "absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 bg-white transition-all duration-300 z-10 shadow-[0_0_0_4px_rgba(255,255,255,1)]",
+                                        s.aktuell
+                                            ? "border-primary group-hover:bg-primary"
+                                            : "border-secondary group-hover:bg-secondary",
+                                    ]}
+                                />
+                                <div class="transition-transform duration-300 group-hover:translate-x-1">
+                                    <span
+                                        class:list={[
+                                            "font-bold text-xs tracking-widest uppercase mb-1 block",
+                                            s.aktuell ? "text-primary" : "text-muted",
+                                        ]}
+                                    >
+                                        {s.zeitraum}
+                                    </span>
+                                    <h4
+                                        class:list={[
+                                            "font-serif text-xl text-text leading-tight mb-2 transition-colors",
+                                            s.aktuell
+                                                ? "group-hover:text-primary"
+                                                : "group-hover:text-secondary-dark",
+                                        ]}
+                                    >
+                                        {s.titel}
+                                    </h4>
+                                    {s.rolle && (
+                                        <p class="text-text/80 text-sm mb-1 font-medium">
+                                            {s.rolle}
+                                        </p>
+                                    )}
+                                    {s.ort && (
+                                        <p class="text-text/80 text-sm">{s.ort}</p>
+                                    )}
+                                    {s.punkte && (
+                                        <ul class="text-text/80 text-sm list-disc list-inside mt-2 space-y-1">
+                                            {s.punkte.map((p) => (
+                                                <li>{p}</li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </div>

@@ -6,42 +6,40 @@
     id="angebot"
     class="py-24 relative overflow-hidden transition-colors duration-700 bg-gradient-to-b from-secondary/10 to-secondary/20"
 >
-    <div
-        class="container mx-auto px-6 relative z-10 max-w-7xl"
-        x-data="{ 
-            view: 'main', 
-            init() {
-                this.checkHash();
-                window.addEventListener('hashchange', () => this.checkHash());
-            },
-            checkHash() {
-                if (window.location.hash === '#methoden') {
-                   this.view = 'methods';
-                } else if (window.location.hash === '#psychotherapie') {
-                   this.view = 'main';
-                }
-            }
-        }"
-    >
+    {/*
+        Vorher wurden die beiden Bereiche per window.location.hash gegeneinander
+        ausgetauscht – ohne Umschalter auf der Seite und ohne dass die Anker
+        #psychotherapie / #methoden als IDs überhaupt existierten. Die "Ergänzenden
+        Methoden" waren damit nur über das Hover-Dropdown im Kopf erreichbar.
+        Jetzt stehen beide Bereiche untereinander, mit echten Sprungzielen.
+    */}
+    <div class="container mx-auto px-6 relative z-10 max-w-7xl">
         <!-- Header -->
-        <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto text-center mb-12" data-aos="fade-up">
             <span class="text-primary font-serif italic text-xl mb-4 block"
                 >Mein Angebot</span
             >
-            <h2 class="font-serif text-5xl md:text-7xl text-text mb-12">
+            <h1 class="font-serif text-5xl md:text-7xl text-text mb-10">
                 Wege zur Heilung
-            </h2>
+            </h1>
 
-            <!-- Navigation Switcher Removed -->
+            <!-- Sprungmarken zu den beiden Bereichen -->
+            <nav class="flex flex-wrap justify-center gap-4" aria-label="Bereiche">
+                <a
+                    href="#psychotherapie"
+                    class="px-6 py-3 rounded-full border-2 border-primary/30 bg-white text-text hover:border-primary hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    >Psychotherapie & Schwerpunkte</a
+                >
+                <a
+                    href="#methoden"
+                    class="px-6 py-3 rounded-full border-2 border-primary/30 bg-white text-text hover:border-primary hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    >Ergänzende Methoden</a
+                >
+            </nav>
         </div>
 
-        <!-- MAIN VIEW: Psychotherapie & Beratung -->
-        <div
-            x-show="view === 'main'"
-            x-transition:enter="transition ease-out duration-500"
-            x-transition:enter-start="opacity-0 translate-y-4"
-            x-transition:enter-end="opacity-100 translate-y-0"
-        >
+        <!-- Psychotherapie & Beratung -->
+        <div id="psychotherapie" class="scroll-mt-32 pt-8">
             <!-- Condensed Intro Text -->
             <div
                 class="max-w-3xl mx-auto text-center mb-16 text-lg md:text-xl text-text/80 leading-relaxed font-light"
@@ -58,7 +56,7 @@
             <!-- Clean "Mein Ansatz" Section -->
             <div class="max-w-4xl mx-auto mb-24 text-center">
                 <div class="inline-block mb-6 text-primary opacity-80">
-                    <svg
+                    <svg aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         class="w-12 h-12 mx-auto"
                         fill="none"
@@ -117,7 +115,7 @@
                     <div
                         class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-red-500 mb-6 group-hover:scale-110 transition-transform relative z-10 shadow-sm"
                     >
-                        <svg
+                        <svg aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
@@ -157,7 +155,7 @@
                     <div
                         class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 mb-6 group-hover:scale-110 transition-transform relative z-10 shadow-sm"
                     >
-                        <svg
+                        <svg aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-8 w-8"
                             fill="none"
@@ -195,7 +193,7 @@
                     <div
                         class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-green-700 mb-6 group-hover:scale-110 transition-transform relative z-10 shadow-sm"
                     >
-                        <svg
+                        <svg aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-8 w-8"
                             fill="none"
@@ -232,7 +230,7 @@
                     <div
                         class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-600 mb-6 group-hover:scale-110 transition-transform relative z-10 shadow-sm"
                     >
-                        <svg
+                        <svg aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-8 w-8"
                             fill="none"
@@ -270,7 +268,7 @@
                     <div
                         class="w-16 h-16 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-700 mb-6 group-hover:scale-110 transition-transform relative z-10 shadow-sm"
                     >
-                        <svg
+                        <svg aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-8 w-8"
                             fill="none"
@@ -308,7 +306,7 @@
                     <div
                         class="w-16 h-16 bg-stone-100 rounded-2xl flex items-center justify-center text-stone-600 mb-6 group-hover:scale-110 transition-transform relative z-10 shadow-sm"
                     >
-                        <svg
+                        <svg aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-8 w-8"
                             fill="none"
@@ -337,19 +335,13 @@
             </div>
         </div>
 
-        <!-- SUB VIEW: Ergänzende Methoden -->
-        <div
-            x-show="view === 'methods'"
-            x-transition:enter="transition ease-out duration-500"
-            x-transition:enter-start="opacity-0 translate-y-10"
-            x-transition:enter-end="opacity-100 translate-y-0"
-            style="display: none;"
-        >
+        <!-- Ergänzende Methoden -->
+        <div id="methoden" class="scroll-mt-32 pt-16 border-t border-secondary/30">
             <!-- Content Top -->
             <div class="max-w-4xl mx-auto text-center mb-16 space-y-6">
-                <h3 class="font-serif text-3xl md:text-5xl text-text mb-6">
+                <h2 class="font-serif text-3xl md:text-5xl text-text mb-6">
                     Ergänzende Methoden
-                </h3>
+                </h2>
                 <p
                     class="text-xl md:text-2xl font-serif italic text-primary leading-relaxed mb-8"
                 >
@@ -380,7 +372,7 @@
                     <div class="text-4xl font-serif text-primary mb-2">
                         2026
                     </div>
-                    <div class="text-sm uppercase tracking-wider text-text/60">
+                    <div class="text-sm uppercase tracking-wider text-muted">
                         Weiterbildung
                     </div>
                 </div>
@@ -412,7 +404,7 @@
                     <div
                         class="w-20 h-20 mx-auto bg-secondary/20 rounded-full flex items-center justify-center text-secondary-dark mb-6"
                     >
-                        <svg
+                        <svg aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-10 w-10"
                             fill="none"
@@ -428,7 +420,7 @@
                     </div>
                     <h4 class="font-serif text-2xl text-text mb-2">Körper</h4>
                     <span
-                        class="block text-sm uppercase tracking-widest text-text/50"
+                        class="block text-sm uppercase tracking-widest text-muted"
                         >Wahrnehmung & Bewegung</span
                     >
                 </div>
@@ -439,7 +431,7 @@
                     <div
                         class="w-20 h-20 mx-auto bg-primary/20 rounded-full flex items-center justify-center text-primary mb-6"
                     >
-                        <svg
+                        <svg aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-10 w-10"
                             fill="none"
@@ -455,7 +447,7 @@
                     </div>
                     <h4 class="font-serif text-2xl text-text mb-2">Atem</h4>
                     <span
-                        class="block text-sm uppercase tracking-widest text-text/50"
+                        class="block text-sm uppercase tracking-widest text-muted"
                         >Präsenz & Erdung</span
                     >
                 </div>
@@ -464,9 +456,9 @@
                     class="bg-white p-10 rounded-[2.5rem] shadow-lg border border-secondary/20 text-center hover:-translate-y-2 transition-transform duration-300"
                 >
                     <div
-                        class="w-20 h-20 mx-auto bg-accent/20 rounded-full flex items-center justify-center text-accent mb-6"
+                        class="w-20 h-20 mx-auto bg-accent/20 rounded-full flex items-center justify-center text-accent-dark mb-6"
                     >
-                        <svg
+                        <svg aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-10 w-10"
                             fill="none"
@@ -484,7 +476,7 @@
                         Kreativität
                     </h4>
                     <span
-                        class="block text-sm uppercase tracking-widest text-text/50"
+                        class="block text-sm uppercase tracking-widest text-muted"
                         >Ausdruck & Symbole</span
                     >
                 </div>

@@ -24,9 +24,9 @@
                 class="text-primary font-bold tracking-widest uppercase text-xs mb-3 block"
                 >Kontakt</span
             >
-            <h2 class="font-serif text-4xl md:text-5xl text-text mb-6">
-                Ich bin für Sie da.
-            </h2>
+            <h1 class="font-serif text-4xl md:text-5xl text-text mb-6">
+                Kontakt &amp; Erstgespräch
+            </h1>
             <div class="w-16 h-1 bg-secondary/30 mx-auto rounded-full mb-8">
             </div>
             <p
@@ -54,7 +54,7 @@
                 <div
                     class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300"
                 >
-                    <svg
+                    <svg aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-8 w-8"
                         fill="none"
@@ -82,12 +82,13 @@
                 </div>
 
                 <a
-                    href="https://maps.google.com/?q=Schillerstraße+11,+79183+Waldkirch"
+                    href="https://maps.google.com/?q=Schillerstra%C3%9Fe+11,+79183+Waldkirch"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all relative group/link"
                 >
-                    <span>Auf Karte anzeigen</span>
-                    <svg
+                    <span>Auf Karte anzeigen<span class="sr-only"> (öffnet Google Maps in neuem Tab)</span></span>
+                    <svg aria-hidden="true"
                         class="w-4 h-4"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -116,7 +117,7 @@
                 <div
                     class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary-dark mb-6 group-hover:bg-secondary group-hover:text-white transition-colors duration-300"
                 >
-                    <svg
+                    <svg aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-8 w-8"
                         fill="none"
@@ -133,12 +134,16 @@
                 </div>
 
                 <h4 class="font-serif text-2xl text-text mb-4">Telefon</h4>
-                <p class="text-xl text-text/80 font-medium mb-3">
-                    0163 4252042
+                <p class="mb-3">
+                    <a
+                        href="tel:+491634252042"
+                        class="text-xl text-primary font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded"
+                        >0163 4252042</a
+                    >
                 </p>
-                <p class="text-sm text-text/50 leading-relaxed max-w-[200px]">
-                    Hinterlassen Sie gerne eine Nachricht, ich rufe verlässlich
-                    zurück.
+                <p class="text-sm text-muted leading-relaxed">
+                    Hinterlassen Sie gerne eine Nachricht auf der Mailbox – ich
+                    rufe verlässlich zurück.
                 </p>
             </div>
 
@@ -156,7 +161,7 @@
                 <div
                     class="w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300"
                 >
-                    <svg
+                    <svg aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-8 w-8"
                         fill="none"
@@ -174,18 +179,18 @@
 
                 <h4 class="font-serif text-2xl text-text mb-4">E-Mail</h4>
                 <a
-                    href="mailto:kontakt@palmen-psychotherapie.de"
+                    href="mailto:info@praxis-palmen.de"
                     class="text-text/70 hover:text-primary transition-colors text-lg block mb-6 break-words"
                 >
-                    kontakt@<br />palmen-psychotherapie.de
+                    info@praxis-palmen.de
                 </a>
 
                 <a
-                    href="mailto:kontakt@palmen-psychotherapie.de"
+                    href="mailto:info@praxis-palmen.de"
                     class="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all"
                 >
                     <span>E-Mail schreiben</span>
-                    <svg
+                    <svg aria-hidden="true"
                         class="w-4 h-4"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -198,7 +203,100 @@
                             d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
                 </a>
+                <p class="text-xs text-muted mt-4 leading-relaxed">
+                    Bitte senden Sie mir per E-Mail keine ausführlichen Angaben
+                    zu Ihrer Gesundheit – E-Mails sind auf dem Weg durchs
+                    Internet nicht durchgängig verschlüsselt. Details besprechen
+                    wir persönlich.
+                </p>
             </div>
         </div>
+
+        <!-- Was nach der Nachricht passiert -->
+        <div
+            class="mt-16 max-w-3xl mx-auto bg-white rounded-3xl p-8 border border-secondary/30 shadow-sm"
+            data-aos="fade-up"
+        >
+            <h2 class="font-serif text-2xl text-text mb-4">
+                Was nach Ihrer Nachricht passiert
+            </h2>
+            <ol class="space-y-3 text-text/80 list-decimal list-inside">
+                <li>
+                    Ich rufe Sie zurück und wir klären in einem kurzen Gespräch,
+                    worum es geht.
+                </li>
+                <li>
+                    Wenn es passt, vereinbaren wir ein Erstgespräch in der
+                    Praxis oder per Videosprechstunde.
+                </li>
+                <li>
+                    In vier bis fünf probatorischen Sitzungen prüfen wir in
+                    Ruhe, ob wir zusammenarbeiten möchten.
+                </li>
+            </ol>
+            <p class="text-sm text-muted mt-4">
+                Erstgespräche kann ich meist innerhalb von ein bis zwei Wochen
+                anbieten. Für einen regulären Therapieplatz können Wartezeiten
+                entstehen – darüber informiere ich Sie offen.
+            </p>
+        </div>
+
+        <!--
+            Krisen-Hinweis: Wer akut in Not ist, landet häufig genau hier.
+            Diese Praxis bietet keine Akutversorgung – das muss sichtbar stehen,
+            nicht nur im Footer.
+        -->
+        <aside
+            class="mt-8 max-w-3xl mx-auto bg-primary/5 border-2 border-primary/30 rounded-3xl p-8"
+            aria-labelledby="krisenhilfe"
+        >
+            <h2 id="krisenhilfe" class="font-serif text-2xl text-text mb-3">
+                Sie brauchen sofort Hilfe?
+            </h2>
+            <p class="text-text/90 mb-4 leading-relaxed">
+                Meine Praxis ist nicht für Akut- und Krisensituationen
+                eingerichtet und nicht durchgehend erreichbar. Wenn es Ihnen
+                sehr schlecht geht oder Sie an Suizid denken, wenden Sie sich
+                bitte sofort an eine dieser Stellen – rund um die Uhr, kostenfrei
+                und vertraulich:
+            </p>
+            <ul class="space-y-2 text-text/90">
+                <li>
+                    <strong>Notruf:</strong>
+                    <a
+                        href="tel:112"
+                        class="text-primary font-bold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded"
+                        >112</a
+                    >
+                </li>
+                <li>
+                    <strong>Ärztlicher Bereitschaftsdienst:</strong>
+                    <a
+                        href="tel:116117"
+                        class="text-primary font-bold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded"
+                        >116 117</a
+                    >
+                </li>
+                <li>
+                    <strong>Telefonseelsorge:</strong>
+                    <a
+                        href="tel:08001110111"
+                        class="text-primary font-bold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded"
+                        >0800 111 0 111</a
+                    >
+                    oder
+                    <a
+                        href="tel:08001110222"
+                        class="text-primary font-bold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded"
+                        >0800 111 0 222</a
+                    >
+                </li>
+                <li>
+                    <strong>Psychiatrische Klinik in der Region:</strong>
+                    Zentrum für Psychiatrie Emmendingen, Notaufnahme rund um die
+                    Uhr
+                </li>
+            </ul>
+        </aside>
     </div>
 </section>

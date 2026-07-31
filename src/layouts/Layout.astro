@@ -1,111 +1,143 @@
 ---
-import "@fontsource/cormorant-garamond";
-import "@fontsource/lato";
-import "@fontsource/caveat";
+// Nur die tatsächlich benutzten Schnitte, latin-Subset (deckt Deutsch vollständig ab).
+// Ohne diese Importe lieferte der Browser Fake-Bold und Fake-Kursiv – siehe README.
+import "@fontsource/cormorant-garamond/latin-400.css";
+import "@fontsource/cormorant-garamond/latin-400-italic.css";
+import "@fontsource/cormorant-garamond/latin-600.css";
+import "@fontsource/lato/latin-300.css";
+import "@fontsource/lato/latin-400.css";
+import "@fontsource/lato/latin-700.css";
+import "@fontsource/caveat/latin-400.css";
 import "aos/dist/aos.css";
 
-import PasswordGate from "../components/PasswordGate.astro";
 import ScrollToTop from "../components/ScrollToTop.astro";
 
 interface Props {
+	/** Vollständiger <title>. Wird NICHT mehr um einen Suffix ergänzt. */
 	title: string;
+	/** Eigene Meta-Description je Seite. Fällt auf den Praxis-Standardtext zurück. */
+	description?: string;
+	/** Rechts-/Fehlerseiten sollen weder indexiert werden noch LocalBusiness-Markup tragen. */
+	noindex?: boolean;
 }
 
-const { title } = Astro.props;
+const SITE = "https://www.praxis-palmen.de";
+const EMAIL = "info@praxis-palmen.de";
+const TEL_DISPLAY = "0163 4252042";
+const TEL_LINK = "+491634252042";
+
+const {
+	title,
+	description = "Privatpraxis für Psychotherapie in Waldkirch bei Freiburg. Tiefenpsychologisch fundiert, körperorientiert und naturverbunden. Schwerpunkte: Essstörungen, Psychosomatik, Erschöpfung.",
+	noindex = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, SITE).toString();
+
+const practiceSchema = {
+	"@context": "https://schema.org",
+	"@type": "Psychologist",
+	name: "Privatpraxis für Psychotherapie Kathrin Palmen",
+	description:
+		"Privatpraxis für tiefenpsychologisch fundierte Psychotherapie in Waldkirch. Keine Abrechnung über gesetzliche Krankenkassen.",
+	image: `${SITE}/assets/og-praxis-palmen.jpg`,
+	"@id": SITE,
+	url: SITE,
+	telephone: TEL_LINK,
+	email: EMAIL,
+	founder: {
+		"@type": "Person",
+		name: "Kathrin Palmen",
+		honorificSuffix: "M.Sc. Psych.",
+		jobTitle: "Psychologische Psychotherapeutin",
+	},
+	address: {
+		"@type": "PostalAddress",
+		streetAddress: "Schillerstraße 11",
+		addressLocality: "Waldkirch",
+		addressRegion: "Baden-Württemberg",
+		postalCode: "79183",
+		addressCountry: "DE",
+	},
+	geo: {
+		"@type": "GeoCoordinates",
+		latitude: 48.0938,
+		longitude: 7.9626,
+	},
+	areaServed: [
+		{ "@type": "City", name: "Waldkirch" },
+		{ "@type": "City", name: "Freiburg im Breisgau" },
+		{ "@type": "City", name: "Emmendingen" },
+	],
+	knowsAbout: [
+		"Tiefenpsychologisch fundierte Psychotherapie",
+		"Essstörungen",
+		"Psychosomatik",
+		"Stress und Erschöpfung",
+		"Beziehungs- und Bindungsthemen",
+	],
+	availableLanguage: "de",
+	// Bewusst KEINE openingHoursSpecification: Es gibt keine belegten Sprechzeiten.
+	// Sobald Kathrin die telefonische Erreichbarkeit nennt, hier und auf /kontakt ergänzen.
+};
 ---
 
 <!doctype html>
 <html lang="de" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="Privatpraxis für Psychotherapie & Psychologie in Waldkirch. Tiefenpsychologisch fundiert, körperorientiert und naturverbunden."
-		/>
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/assets/Logo_palmen.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+		<meta name="theme-color" content="#1a3c3b" />
 		<meta name="generator" content={Astro.generator} />
-		<title>
-			{title} | Psychotherapie & Beratung in Waldkirch - Kathrin Palmen
-		</title>
+		<title>{title}</title>
 
 		<!-- SEO Meta Tags -->
-		<link
-			rel="canonical"
-			href={new URL(
-				Astro.url.pathname,
-				"https://www.praxis-palmen.de",
-			).toString()}
-		/>
+		<link rel="canonical" href={canonical} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
+		{noindex && <meta name="robots" content="noindex, follow" />}
 
 		<!-- Open Graph / Social Media -->
 		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="de_DE" />
+		<meta property="og:site_name" content="Privatpraxis Kathrin Palmen" />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={`${SITE}/assets/og-praxis-palmen.jpg`} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 		<meta
-			property="og:url"
-			content={new URL(
-				Astro.url.pathname,
-				"https://www.praxis-palmen.de",
-			).toString()}
+			property="og:image:alt"
+			content="Privatpraxis für Psychotherapie Kathrin Palmen in Waldkirch"
 		/>
-		<meta
-			property="og:title"
-			content={`${title} | Psychotherapie & Beratung`}
-		/>
-		<meta
-			property="og:description"
-			content="Privatpraxis für Psychotherapie in Waldkirch. Tiefenpsychologisch fundiert & körperorientiert. Jetzt Termin vereinbaren."
-		/>
-		<meta
-			property="og:image"
-			content="https://www.praxis-palmen.de/assets/portrait.jpg"
-		/>
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
 
-		<!-- Schema.org JSON-LD (Local Business) -->
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Physician",
-				"name": "Psychotherapiepraxis Kathrin Palmen",
-				"image": "https://www.praxis-palmen.de/assets/portrait.jpg",
-				"@id": "https://www.praxis-palmen.de",
-				"url": "https://www.praxis-palmen.de",
-				"telephone": "+491634252042",
-				"email": "kontakt@palmen-psychotherapie.de",
-				"address": {
-					"@type": "PostalAddress",
-					"streetAddress": "Schillerstraße 11",
-					"addressLocality": "Waldkirch",
-					"postalCode": "79183",
-					"addressCountry": "DE"
-				},
-				"geo": {
-					"@type": "GeoCoordinates",
-					"latitude": 48.0938,
-					"longitude": 7.9626
-				},
-				"openingHoursSpecification": [
-					{
-						"@type": "OpeningHoursSpecification",
-						"dayOfWeek": [
-							"Monday",
-							"Tuesday",
-							"Wednesday",
-							"Thursday",
-							"Friday"
-						],
-						"opens": "09:00",
-						"closes": "18:00"
-					}
-				],
-				"priceRange": "$$"
-			}
-		</script>
+		<!-- Schema.org JSON-LD – nur auf Inhaltsseiten, nicht auf Recht/404 -->
+		{
+			!noindex && (
+				<script
+					type="application/ld+json"
+					set:html={JSON.stringify(practiceSchema)}
+				/>
+			)
+		}
+		<slot name="head" />
 	</head><body
 		class="bg-background text-text font-sans antialiased text-base md:text-lg transition-colors duration-700 relative"
 		id="body-bg"
 	>
-		<!-- Background "Blur Orbs" & Dotted Texture -->
+		<a
+			href="#inhalt"
+			class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:shadow-lg"
+		>
+			Zum Inhalt springen
+		</a>
+
 		<!-- Background "Blur Orbs" -->
 		<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
 			<!-- Orbs (High Visibility Mode) -->
@@ -125,7 +157,6 @@ const { title } = Astro.props;
 			>
 			</div>
 		</div>
-		<PasswordGate />
 		<!-- ... Header code ... -->
 		<header
 			class="fixed w-full top-0 z-50 transition-all duration-500 transform bg-background/95 backdrop-blur-md"
@@ -159,9 +190,11 @@ const { title } = Astro.props;
 			>
 				<a href="/" class="flex items-center gap-3 group">
 					<img
-						src="/assets/Logo_palmen.png"
-						alt="Logo"
-						class="w-12 h-auto group-hover:opacity-80 transition-opacity duration-300"
+						src="/assets/logo-96.png"
+						alt=""
+						width="48"
+						height="48"
+						class="w-12 h-12 object-contain group-hover:opacity-80 transition-opacity duration-300"
 					/>
 					<div class="flex flex-col">
 						<span
@@ -170,7 +203,7 @@ const { title } = Astro.props;
 							Praxis Palmen
 						</span>
 						<span
-							class="text-xs md:text-sm text-text/60 font-light tracking-widest uppercase"
+							class="text-xs md:text-sm text-muted font-light tracking-widest uppercase"
 						>
 							Privatpraxis
 						</span>
@@ -192,7 +225,7 @@ const { title } = Astro.props;
 							class={`transition-all duration-300 border-b-2 hover:text-primary flex items-center gap-1 ${Astro.url.pathname.startsWith("/angebot") ? "text-primary border-primary" : "text-text/80 border-transparent hover:border-primary/30"}`}
 						>
 							Angebot
-							<svg
+							<svg aria-hidden="true"
 								xmlns="http://www.w3.org/2000/svg"
 								class="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity"
 								fill="none"
@@ -206,9 +239,9 @@ const { title } = Astro.props;
 							>
 						</a>
 
-						<!-- Dropdown -->
+						<!-- Dropdown (hover UND Tastatur-Fokus – vorher nur hover) -->
 						<div
-							class="absolute top-full left-1/2 -translate-x-1/2 pt-6 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50"
+							class="absolute top-full left-1/2 -translate-x-1/2 pt-6 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:visible transition-all duration-300 ease-out z-50"
 						>
 							<div
 								class="bg-white/90 backdrop-blur-xl rounded-[1.5rem] shadow-xl border border-white/60 overflow-hidden w-72 p-3 ring-1 ring-black/5 relative"
@@ -226,7 +259,7 @@ const { title } = Astro.props;
 										>Psychotherapie</span
 									>
 									<span
-										class="block text-xs uppercase tracking-widest opacity-50"
+										class="block text-xs uppercase tracking-widest text-muted"
 										>Tiefenpsychologie</span
 									>
 								</a>
@@ -239,7 +272,7 @@ const { title } = Astro.props;
 										>Ergänzende Methoden</span
 									>
 									<span
-										class="block text-xs uppercase tracking-widest opacity-50"
+										class="block text-xs uppercase tracking-widest text-muted"
 										>Körper, Atem, Kreativität</span
 									>
 								</a>
@@ -268,10 +301,13 @@ const { title } = Astro.props;
 				<!-- Mobile Menu Button -->
 				<button
 					@click="mobileMenuOpen = !mobileMenuOpen"
-					class="md:hidden focus:outline-none p-2 rounded-md hover:bg-secondary/10 transition-colors"
+					class="md:hidden p-2 rounded-md hover:bg-secondary/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+					:aria-label="mobileMenuOpen ? 'Menü schließen' : 'Menü öffnen'"
 					aria-label="Menü öffnen"
+					:aria-expanded="mobileMenuOpen"
+					aria-controls="mobile-menu"
 				>
-					<svg
+					<svg aria-hidden="true"
 						class="w-6 h-6 text-text"
 						fill="none"
 						stroke="currentColor"
@@ -289,6 +325,7 @@ const { title } = Astro.props;
 
 			<!-- Mobile Menu (Fade & Slide) -->
 			<div
+				id="mobile-menu"
 				x-show="mobileMenuOpen"
 				@click.away="mobileMenuOpen = false"
 				x-transition:enter="transition ease-out duration-300"
@@ -308,10 +345,12 @@ const { title } = Astro.props;
 				<div x-data="{ expanded: false }" class="block">
 					<button
 						@click="expanded = !expanded"
-						class="flex items-center justify-between w-full text-xl font-medium text-text hover:text-primary focus:outline-none"
+						class="flex items-center justify-between w-full text-xl font-medium text-text hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+						:aria-expanded="expanded"
+						aria-controls="mobile-angebot-submenu"
 					>
 						<span>Angebot</span>
-						<svg
+						<svg aria-hidden="true"
 							xmlns="http://www.w3.org/2000/svg"
 							class="h-5 w-5 transition-transform duration-300"
 							:class="expanded ? 'rotate-180' : ''"
@@ -326,6 +365,7 @@ const { title } = Astro.props;
 						>
 					</button>
 					<div
+						id="mobile-angebot-submenu"
 						x-show="expanded"
 						x-collapse
 						class="pl-4 mt-2 space-y-3 border-l-2 border-primary/10 ml-1"
@@ -368,7 +408,7 @@ const { title } = Astro.props;
 		</header>
 
 		<!-- Main Content Slot -->
-		<main class="relative z-10">
+		<main id="inhalt" class="relative z-10">
 			<slot />
 		</main>
 
@@ -395,8 +435,9 @@ const { title } = Astro.props;
 							M.Sc. Psych. Kathrin Palmen<br />
 							Psychologische Psychotherapeutin
 						</p>
-						<p class="text-xs text-text/60">
-							Eintrag im Arztregister | Mitglied der LPPKJP
+						<p class="text-xs text-muted">
+							Mitglied der Landespsychotherapeutenkammer
+							Baden-Württemberg
 						</p>
 					</div>
 
@@ -412,6 +453,11 @@ const { title } = Astro.props;
 							79183 Waldkirch
 						</p>
 						<a
+							href={`tel:${TEL_LINK}`}
+							class="text-sm text-primary hover:underline block"
+							>{TEL_DISPLAY}</a
+						>
+						<a
 							href="/kontakt"
 							class="text-sm text-primary hover:underline block"
 							>Termin vereinbaren &rarr;</a
@@ -426,15 +472,47 @@ const { title } = Astro.props;
 							Im Notfall
 						</h5>
 						<p class="text-sm text-text/80 leading-relaxed">
-							Notruf: <strong>112</strong><br />
-							Telefonseelsorge: <strong>0800 111 0 111</strong>
+							Diese Praxis bietet keine Akut- oder
+							Krisenversorgung. In dringenden Fällen:
 						</p>
+						<ul class="text-sm text-text/80 leading-relaxed space-y-1">
+							<li>
+								Notruf <a
+									href="tel:112"
+									class="font-bold text-primary hover:underline"
+									>112</a
+								>
+							</li>
+							<li>
+								Ärztlicher Bereitschaftsdienst <a
+									href="tel:116117"
+									class="font-bold text-primary hover:underline"
+									>116 117</a
+								>
+							</li>
+							<li>
+								Telefonseelsorge <a
+									href="tel:08001110111"
+									class="font-bold text-primary hover:underline"
+									>0800 111 0 111</a
+								>
+								<span class="text-muted">oder</span>
+								<a
+									href="tel:08001110222"
+									class="font-bold text-primary hover:underline"
+									>0800 111 0 222</a
+								>
+								<span class="block text-xs text-muted"
+									>kostenfrei, rund um die Uhr, anonym</span
+								>
+							</li>
+						</ul>
 					</div>
 				</div>
 
 				<!-- Bottom Bar -->
 				<div
-					class="border-t border-secondary/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text/50"
+					class="border-t border-secondary/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted"
 				>
 					<p>&copy; {new Date().getFullYear()} Kathrin Palmen</p>
 					<div class="flex space-x-6">
@@ -458,41 +536,22 @@ const { title } = Astro.props;
 		<!-- Alpine & AOS Scripts -->
 		<script>
 			import Alpine from "alpinejs";
+			import collapse from "@alpinejs/collapse";
 			// @ts-ignore
 			window.Alpine = Alpine;
+			Alpine.plugin(collapse);
 			Alpine.start();
 		</script>
 
 		<script>
 			import AOS from "aos";
-			AOS.init({
-				duration: 1000,
-				once: true,
-				offset: 50,
-			});
-		</script>
 
-		<script>
-			/* Scroll gradient removed as requested to keep background clean and consistent */
-		</script>
-
-		<!-- Custom Cursor Follower -->
-		<div
-			id="cursor-follower"
-			class="fixed w-6 h-6 bg-primary/40 rounded-full pointer-events-none z-[9999] mix-blend-multiply blur-[2px] hidden md:block transition-transform duration-75 ease-out will-change-transform"
-			style="left: 0; top: 0; transform: translate(-100px, -100px);"
-		>
-		</div>
-
-		<script>
-			const cursor = document.getElementById("cursor-follower");
-
-			document.addEventListener("mousemove", (e) => {
-				if (cursor) {
-					// Translate directly to mouse position (centering the 24px circle: -12px)
-					cursor.style.transform = `translate(${e.clientX - 12}px, ${e.clientY - 12}px)`;
-				}
-			});
+			// Wer reduzierte Bewegung eingestellt hat, bekommt keine Scroll-Animationen.
+			// Das Sichtbarmachen der Inhalte übernimmt die @media-Regel unten in
+			// <style is:global> – die greift auch, bevor dieses Skript läuft.
+			if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+				AOS.init({ duration: 1000, once: true, offset: 50 });
+			}
 		</script>
 
 		<style is:global>
@@ -541,6 +600,39 @@ const { title } = Astro.props;
 			.animate-pulse-slow {
 				animation: pulse-slow 12s ease-in-out infinite;
 			}
+
+			/*
+			 * Barrierefreiheit: Wer im Betriebssystem "Bewegung reduzieren"
+			 * eingestellt hat, sieht eine ruhige Seite – keine schwebenden Orbs,
+			 * keine Einblendungen. Relevant für Migräne, Vestibulärstörungen,
+			 * Angst und ADHS, also für einen erheblichen Teil der Zielgruppe.
+			 */
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+					transition-duration: 0.01ms !important;
+					scroll-behavior: auto !important;
+				}
+				[data-aos] {
+					opacity: 1 !important;
+					transform: none !important;
+					transition: none !important;
+				}
+			}
 		</style>
+
+		{/* Ohne JavaScript setzt aos.css alle Inhalte auf opacity:0 – die Seite
+		wäre leer. Dieser Fallback macht sie unbedingt sichtbar. */}
+		<noscript>
+			<style>
+				[data-aos] {
+					opacity: 1 !important;
+					transform: none !important;
+				}
+			</style>
+		</noscript>
 	</body>
 </html>
