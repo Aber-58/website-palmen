@@ -88,7 +88,10 @@ const practiceSchema = {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
-		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		{/* favicon.ico enthält 16/32/48/64 px – je Größe mit eigener Strichstärke
+		gerendert, weil die feinen Palmenlinien sonst unter 32 px verschwinden. */}
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
 		<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 		<meta name="theme-color" content="#1a3c3b" />
 		<meta name="generator" content={Astro.generator} />
