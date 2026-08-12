@@ -10,8 +10,13 @@
  * ein Link auf eine Adresse, die es noch nicht gibt, wäre schlechter als
  * gar kein Hinweis.
  *
- * Zum Freischalten hier die vollständige Adresse eintragen, z. B.
- * "https://www.palmen-seminare.de". Mehr ist nicht nötig.
+ * Entschieden ist die Adresse palmen-seminare.de. Eingetragen wird sie erst,
+ * wenn die Seite auch antwortet:
+ *
+ *     export const SEMINAR_URL = "https://www.palmen-seminare.de";
+ *
+ * Mehr ist nicht nötig, Fußbereich und /angebot/methoden schalten sich damit
+ * von selbst frei.
  *
  * Bewusst KEINE Subdomain von praxis-palmen.de: Seminare sind ein
  * gewerbliches Bildungsangebot, Psychotherapie ist Heilkunde. Die
