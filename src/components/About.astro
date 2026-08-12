@@ -3,68 +3,102 @@ import { Image } from "astro:assets";
 import portraitImage from "../assets/portrait-profil.jpg";
 
 /**
- * Werdegang, streng absteigend nach Startjahr.
- *
- * Vorher war die Reihenfolge gemischt und ein Eintrag in sich widersprüchlich:
- * unter der Überschrift "2016 – 2017" stand "Reha-Zentrum St. Blasien (2019-2020)".
- * Aufgelöst anhand der Jahreszahlen, die im Eintrag selbst standen – die beiden
- * Klinikstationen sind jetzt getrennt.
- *
- * TODO (Kathrin): Zeiträume einmal gegenlesen, insbesondere St. Blasien und
- * die Überschneidung von Approbationsausbildung und Lehrpraxis-Tätigkeit.
+ * Werdegang, von Kathrin gegengelesen und korrigiert (August 2026) – ihre Liste
+ * ist die maßgebliche Quelle, nicht die zuvor hier stehenden Jahreszahlen.
+ * Streng absteigend nach Startjahr.
  */
 const stationen = [
 	{
 		zeitraum: "Seit 2025",
 		titel: "Privatpraxis für Psychotherapie",
-		ort: "Waldkirch",
+		ort: "Waldkirch und Freiburg",
 		aktuell: true,
 	},
 	{
 		zeitraum: "2024 – 2025",
-		titel: "Praktikum bei Ai Pono Hawaii",
+		titel: "Praktikum bei Ai Pono, Hawaii",
 		ort: "Dr. Anita Johnston: Ganzheitliche Arbeit mit Essstörungen",
 	},
 	{
-		zeitraum: "2024 – 2025",
-		titel: "Systemische Weiterbildungen",
-		punkte: [
-			"Systemisch-schamanische Ahnenarbeit",
-			"Systemisches Familienstellen",
-		],
-	},
-	{
-		zeitraum: "2019 – 2020",
-		titel: "Klinische Tätigkeit",
-		ort: "Reha-Zentrum St. Blasien",
-	},
-	{
-		zeitraum: "2018 – 2023",
-		titel: "Approbationsausbildung",
-		rolle: "Psychologische Psychotherapeutin (TP)",
-		ort: "ZIST Akademie für Psychotherapie, Penzberg",
-	},
-	{
-		zeitraum: "2017 – 2023",
+		zeitraum: "2022 – 2025",
 		titel: "Psychotherapeutische Tätigkeit",
 		ort: "Ambulante Tätigkeit in Lehrpraxen, Freiburg",
 	},
 	{
-		zeitraum: "2016",
+		zeitraum: "2019 – 2022",
 		titel: "Klinische Tätigkeit",
+		ort: "Reha-Zentrum St. Blasien",
+	},
+	{
+		zeitraum: "2018 – 2025",
+		titel: "Psychotherapeutenausbildung",
+		rolle: "Psychologische Psychotherapeutin (TP)",
+		ort: "Akademie für Psychotherapie, Penzberg",
+	},
+	{
+		zeitraum: "2018",
+		titel: "Klinische Tätigkeit in der Psychiatrie",
 		ort: "ZfP Emmendingen",
 	},
 	{
-		zeitraum: "2012 – 2015",
+		zeitraum: "2015 – 2018",
 		titel: "M. Sc. Psychologie",
 		ort: "Universität des Saarlandes",
 	},
 	{
-		zeitraum: "Seit 2012",
-		titel: "Kontinuierliche Fortbildung",
-		ort: "Achtsamkeit, Meditation & Körperarbeit",
+		zeitraum: "2012 – 2015",
+		titel: "B. Sc. Psychologie",
+		ort: "Universität des Saarlandes",
 	},
 ];
+
+/**
+ * Weiterbildungen liefen seit 2015 neben Studium, Ausbildung und Anstellungen
+ * her. Genau dieses Nebeneinander zeigt die Darstellung: zwei gleich gebaute
+ * Zeitstrahlen nebeneinander statt einer Aufzählung, die unter dem Werdegang
+ * klebt. Gleiche Feldnamen wie oben, damit beide Spuren dasselbe Markup
+ * benutzen. Absteigend nach Startjahr.
+ */
+const weiterbildungen = [
+	{
+		zeitraum: "2026 – 2027",
+		titel: "BEcoming: Yogalehrerin und Life Coach",
+		ort: "nach Dieter M. Hörner und Heike Wolf",
+		aktuell: true,
+	},
+	{
+		zeitraum: "2025",
+		titel: "Systemisch-schamanische Ahnenarbeit",
+		ort: "nach Anke Teichert",
+	},
+	{
+		zeitraum: "2024 – 2025",
+		titel: "Systemisches Familienstellen",
+		ort: "nach Charles Olivier",
+	},
+	{
+		zeitraum: "2015",
+		titel: "Autosystemhypnose",
+		ort: "bei Michael Antis, Saarlouis",
+	},
+];
+
+/**
+ * Ein einziger Zeitstrahl für beides: Die Listen werden zusammengelegt und nach
+ * Startjahr sortiert, ein kleines Etikett weist die Weiterbildungen aus.
+ *
+ * Zwei Spalten nebeneinander waren der Zwischenschritt davor – auf großen
+ * Bildschirmen zogen sich die beiden Spuren dann aber weit auseinander und der
+ * Blick musste ständig springen. Eine Spalte in halber Breite liest sich ruhiger
+ * und zeigt die Gleichzeitigkeit genauso: Die Autosystemhypnose (2015) steht
+ * direkt beim Masterstudium (2015 – 2018).
+ */
+const startjahr = (zeitraum) => Number(zeitraum.match(/\d{4}/)[0]);
+
+const zeilen = [
+	...stationen.map((e) => ({ ...e, weiterbildung: false })),
+	...weiterbildungen.map((e) => ({ ...e, weiterbildung: true })),
+].sort((a, b) => startjahr(b.zeitraum) - startjahr(a.zeitraum));
 ---
 
 <section
@@ -114,9 +148,11 @@ const stationen = [
                 </div>
             </div>
 
-            <!-- Text – auf Desktop rechte Spalte über zwei Zeilen -->
+            {/* Text – auf Desktop rechte Spalte über beide Zeilen. Das
+            row-span ist das, was die Komposition trägt: Der Text läuft neben
+            Bild UND Zeitstrahl, sonst bliebe rechts eine tote Fläche. */}
             <div
-                class="md:col-start-2 md:row-start-1 md:row-span-2 sticky top-12"
+                class="md:col-start-2 md:row-start-1 md:row-span-2"
                 data-aos="fade-left"
             >
                 <h1
@@ -208,11 +244,11 @@ const stationen = [
                     </div>
 
                     {
-                        stationen.map((s, i) => (
+                        zeilen.map((s, i) => (
                             <div
                                 class:list={[
                                     "relative pl-12 group",
-                                    i < stationen.length - 1 && "pb-12",
+                                    i < zeilen.length - 1 && "pb-12",
                                 ]}
                             >
                                 <div
@@ -224,14 +260,23 @@ const stationen = [
                                     ]}
                                 />
                                 <div>
-                                    <span
-                                        class:list={[
-                                            "font-bold text-xs tracking-widest uppercase mb-1 block",
-                                            s.aktuell ? "text-primary" : "text-muted",
-                                        ]}
-                                    >
-                                        {s.zeitraum}
-                                    </span>
+                                    <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+                                        <span
+                                            class:list={[
+                                                "font-bold text-xs tracking-widest uppercase",
+                                                s.aktuell
+                                                    ? "text-primary"
+                                                    : "text-muted",
+                                            ]}
+                                        >
+                                            {s.zeitraum}
+                                        </span>
+                                        {s.weiterbildung && (
+                                            <span class="text-[10px] tracking-widest uppercase text-secondary-dark bg-secondary/25 rounded-full px-2 py-0.5">
+                                                Weiterbildung
+                                            </span>
+                                        )}
+                                    </div>
                                     <h4
                                         class:list={[
                                             "font-serif text-xl text-text leading-tight mb-2 transition-colors",
@@ -248,14 +293,9 @@ const stationen = [
                                         </p>
                                     )}
                                     {s.ort && (
-                                        <p class="text-text/80 text-sm">{s.ort}</p>
-                                    )}
-                                    {s.punkte && (
-                                        <ul class="text-text/80 text-sm list-disc list-inside mt-2 space-y-1">
-                                            {s.punkte.map((p) => (
-                                                <li>{p}</li>
-                                            ))}
-                                        </ul>
+                                        <p class="text-text/80 text-sm">
+                                            {s.ort}
+                                        </p>
                                     )}
                                 </div>
                             </div>

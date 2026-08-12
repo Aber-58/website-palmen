@@ -2,16 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 
 /*
- * OFFEN VOR LIVEGANG – Angaben von Kathrin nötig:
+ * OFFEN – eine Angabe von Kathrin fehlt noch:
  *
- * 1. BLOCKIEREND: Berufshaftpflichtversicherung. Nach § 2 Abs. 1 Nr. 11
- *    DL-InfoV sind Name, Anschrift und räumlicher Geltungsbereich des
- *    Versicherers anzugeben. Der Absatz fehlt derzeit vollständig.
- *    Einzufügen nach dem Block "Berufsrechtliche Regelungen".
- *
- * 2. Approbationsbehörde: Statt "verliehen in der Bundesrepublik Deutschland"
- *    die verleihende Stelle nennen, z. B. "Approbation erteilt durch das
- *    Regierungspräsidium Stuttgart".
+ * Der räumliche Geltungsbereich der Berufshaftpflicht (§ 2 Abs. 1 Nr. 11
+ * DL-InfoV verlangt Name, Anschrift UND Geltungsbereich). Versicherer und
+ * Anschrift stehen unten; der Geltungsbereich steht nicht im Versicherungs-
+ * schein, sondern in den Barmenia-Bedingungen zur Gewerbe-Haftpflicht (VGH),
+ * üblich ist "Europa" oder "weltweit". Sobald geklärt, als Zeile im Absatz
+ * "Berufshaftpflichtversicherung" ergänzen.
  *
  * Danach: Impressum und Datenschutzerklärung juristisch gegenlesen lassen
  * (die LPK Baden-Württemberg stellt Muster für Privatpraxen bereit).
@@ -47,7 +45,8 @@ import Layout from "../layouts/Layout.astro";
             <p>
                 <strong>Gesetzliche Berufsbezeichnung:</strong><br />
                 Psychologische Psychotherapeutin<br />
-                Verliehen in der Bundesrepublik Deutschland
+                Verliehen in der Bundesrepublik Deutschland<br />
+                Approbation erteilt durch die Regierung von Oberbayern
             </p>
 
             <p>
@@ -102,6 +101,13 @@ import Layout from "../layouts/Layout.astro";
                     >
                 </li>
             </ul>
+
+            <p>
+                <strong>Berufshaftpflichtversicherung:</strong><br />
+                Barmenia Allgemeine Versicherungs-AG<br />
+                Barmenia-Allee 1<br />
+                42119 Wuppertal
+            </p>
 
             <p>
                 <strong>Verbraucherstreitbeilegung:</strong><br />
