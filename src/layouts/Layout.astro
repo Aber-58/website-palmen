@@ -11,6 +11,7 @@ import "@fontsource/caveat/latin-400.css";
 import "aos/dist/aos.css";
 
 import ScrollToTop from "../components/ScrollToTop.astro";
+import { SEMINAR_URL, SEMINAR_URL_ANZEIGE } from "../config";
 
 interface Props {
 	/** Vollständiger <title>. Wird NICHT mehr um einen Suffix ergänzt. */
@@ -517,6 +518,29 @@ const practiceSchema = {
 				>
 					<p>&copy; {new Date().getFullYear()} Kathrin Palmen</p>
 					<div class="flex space-x-6">
+						{/*
+							Hinweis auf die Seminare: sachlich, nicht anpreisend, und
+							bewusst hier unten statt in der Navigation. Seminare sind
+							ein gesondertes gewerbliches Angebot und dürfen mit dem
+							Therapieangebot nicht vermischt werden. Erscheint nur,
+							wenn in src/config.ts eine Adresse hinterlegt ist.
+						*/}
+						{
+							SEMINAR_URL && (
+								<a
+									href={SEMINAR_URL}
+									rel="noopener noreferrer"
+									class="hover:text-primary transition-colors"
+								>
+									Seminare
+									<span class="sr-only">
+										(gesondertes Bildungsangebot auf {SEMINAR_URL_ANZEIGE},
+										kein Therapieangebot)
+									</span>
+									<span aria-hidden="true">&nearr;</span>
+								</a>
+							)
+						}
 						<a
 							href="/impressum"
 							class="hover:text-primary transition-colors"

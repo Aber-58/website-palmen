@@ -4,10 +4,11 @@
  *
  * Bewusst dem Therapieangebot nachgeordnet: erreichbar über das Dropdown im
  * Seitenkopf und über den Teaser am Ende von /angebot, aber ohne
- * gleichrangigen Umschalter. Für Seminare (z. B. Yoga mit Psychotherapie in
- * Italien) ist eine eigene Webseite geplant – sobald die steht, gehört der
- * Link darauf an das Ende dieser Seite, siehe Kommentar weiter unten.
+ * gleichrangigen Umschalter. Der Hinweis auf die Seminar-Webseite steht am
+ * Ende dieser Seite und erscheint nur, wenn in src/config.ts eine Adresse
+ * hinterlegt ist.
  */
+import { SEMINAR_URL, SEMINAR_URL_ANZEIGE } from "../config";
 ---
 
 <section class="py-24 relative overflow-hidden bg-gradient-to-b from-secondary/10 to-secondary/20">
@@ -179,11 +180,47 @@
         </div>
 
         {/*
-            HIER kommt später der Hinweis auf die Seminar-Webseite hin
-            (Yoga-Seminare mit Psychotherapie, z. B. in Italien). Bis die Seite
-            steht, bleibt die Stelle bewusst leer – ein Link ins Nichts wäre
-            schlechter als gar keiner.
+            Der lange reservierte Platz für den Hinweis auf die Seminare.
+            Bewusst sachlich und mit klarer Abgrenzung formuliert: Seminare
+            sind ein gewerbliches Bildungsangebot, Psychotherapie ist
+            Heilkunde. Die Berufsordnung verlangt, dass beides nicht
+            vermischt wird – deshalb eigene Webseite, kein Reiter hier.
+
+            Erscheint nur, wenn in src/config.ts eine Adresse steht.
         */}
+        {
+            SEMINAR_URL && (
+                <aside
+                    class="max-w-3xl mx-auto rounded-3xl border border-secondary/40 bg-white/60 p-8"
+                    aria-labelledby="seminar-hinweis"
+                >
+                    <span class="block text-xs uppercase tracking-widest text-muted mb-2">
+                        Gesondertes Angebot
+                    </span>
+                    <h2
+                        id="seminar-hinweis"
+                        class="font-serif text-2xl text-text mb-3"
+                    >
+                        Diese Methoden in Seminarform
+                    </h2>
+                    <p class="text-text/80 leading-relaxed mb-5">
+                        Körperwahrnehmung, Atem und kreativer Ausdruck stehen
+                        auch im Mittelpunkt eigener Seminare. Die laufen
+                        getrennt von der Praxis: als Bildungsangebot in der
+                        Gruppe, nicht als Behandlung, und ohne Erstattung durch
+                        Krankenkassen.
+                    </p>
+                    <a
+                        href={SEMINAR_URL}
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded"
+                    >
+                        {SEMINAR_URL_ANZEIGE}
+                        <span aria-hidden="true">&nearr;</span>
+                    </a>
+                </aside>
+            )
+        }
 
         <!-- Abschluss: Kontaktaufnahme -->
         <div class="mt-24 text-center max-w-3xl mx-auto">
